@@ -28,5 +28,10 @@ namespace PizzaIllico.Services
             _service.getAllPizzaByShop(action,id);
         }
 
+        public Task <bool> insription(User user)
+        {
+            return _service.inscription(user);
+        }
+
     }
 }

@@ -51,8 +51,21 @@ namespace PizzaIllico.Views
 
                 listView.IsVisible = true;
                 waitLayout.IsVisible = false;
+                
+                listView.ItemSelected += (sender, e) =>
+                {
+                    if (listView.SelectedItem != null)
+                    {
+                        ItemPizza itemPizza = listView.SelectedItem as ItemPizza;
+                  
+                        Navigation.PushAsync(new DetailsPizzaPage((itemPizza)));
+                    
+                    }
+                };
 
             },id);
+            
+          
 
         }
     }

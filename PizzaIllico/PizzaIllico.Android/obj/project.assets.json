@@ -49,6 +49,9 @@
           "lib/monoandroid90/Plugin.Permissions.dll": {}
         }
       },
+      "ScrollableNumberPicker/2.0.0": {
+        "type": "package"
+      },
       "System.Buffers/4.5.1": {
         "type": "package",
         "compile": {
@@ -1490,6 +1493,7 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
+          "ScrollableNumberPicker": "2.0.0",
           "System.Text.Json": "5.0.1",
           "Xam.Plugin.Geolocator": "4.6.2-beta",
           "Xamarin.Essentials": "1.6.1",
@@ -1602,6 +1606,18 @@
         "plugin.permissions.5.0.0-beta.nupkg.sha512",
         "plugin.permissions.nuspec",
         "readme.txt"
+      ]
+    },
+    "ScrollableNumberPicker/2.0.0": {
+      "sha512": "ZGJZUqy8TObj/r2hALgUNFW+AoibgXkd5eegBDd7kQGgFDm5Px+pGXrc7tic2JzVoP8OrdQKlBlQYm3nyGLb4A==",
+      "type": "package",
+      "path": "scrollablenumberpicker/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/ScrollableNumberPicker.dll",
+        "scrollablenumberpicker.2.0.0.nupkg.sha512",
+        "scrollablenumberpicker.nuspec"
       ]
     },
     "System.Buffers/4.5.1": {
@@ -3393,5 +3409,16 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package ScrollableNumberPicker 2.0.0 is not compatible with monoandroid10.0 (MonoAndroid,Version=v10.0). Package ScrollableNumberPicker 2.0.0 supports: net (.NETFramework,Version=v0.0)",
+      "libraryId": "ScrollableNumberPicker",
+      "targetGraphs": [
+        "MonoAndroid,Version=v10.0"
+      ]
+    }
+  ]
 }

@@ -26,19 +26,14 @@
                     <StackLayout Grid.Row="2">
                         <Entry Placeholder="Email" FontSize="16" x:Name="email"/> 
                     </StackLayout>
-                    
                     <StackLayout Grid.Row="3">
-                        <Entry Placeholder="Client Secret" FontSize="16" x:Name="cl_secret"/> 
+                        <Entry Placeholder="Téléphone" FontSize="16" x:Name="phone" Keyboard="Numeric"/> 
                     </StackLayout>
-                    
                     <StackLayout Grid.Row="4">
-                        <Entry Placeholder="Téléphone" FontSize="16" x:Name="phone"/> 
-                    </StackLayout>
-                    <StackLayout Grid.Row="5">
                         <Entry Placeholder="Mot de passe" IsPassword="True" FontSize="16" x:Name="mdp"/> 
                     </StackLayout>
 
-                    <StackLayout Grid.Row="6">
+                    <StackLayout Grid.Row="5">
                         <Button Text="Enregister" HorizontalOptions="CenterAndExpand" TextColor="White"
                                BackgroundColor="Blue" Clicked="Button_OnClicked" />
                     </StackLayout>

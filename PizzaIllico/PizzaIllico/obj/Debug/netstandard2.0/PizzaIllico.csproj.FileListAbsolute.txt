@@ -16,3 +16,4 @@ C:\Users\guind\source\repos\PizzaIllico\PizzaIllico\PizzaIllico\obj\Debug\netsta
 C:\Users\guind\source\repos\PizzaIllico\PizzaIllico\PizzaIllico\obj\Debug\netstandard2.0\PizzaIllico.csprojAssemblyReference.cache
 C:\Users\guind\source\repos\PizzaIllico\PizzaIllico\PizzaIllico\obj\Debug\netstandard2.0\Views\MapPage.xaml.g.cs
 C:\Users\guind\source\repos\PizzaIllico\PizzaIllico\PizzaIllico\obj\Debug\netstandard2.0\Views\ListePizzaPage.xaml.g.cs
+C:\Users\guind\source\repos\PizzaIllico\PizzaIllico\PizzaIllico\obj\Debug\netstandard2.0\Views\DetailsPizzaPage.xaml.g.cs

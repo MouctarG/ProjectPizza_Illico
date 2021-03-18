@@ -2,20 +2,23 @@
 {
     public class User
     {
-        private string email;
-        private string first_name;
-        private string last_name;
-        private string phone_number;
-        private string password;
+        public string email { get; set; }
+        public string first_name { get; set; }
+        public string last_name { get; set; }
+        public string phone_number { get; set; }
+        public string password { get; set; }
 
-        public string Email => email;
+        public User()
+        {
+        }
 
-        public string FirstName => first_name;
-
-        public string LastName => last_name;
-
-        public string PhoneNumber => phone_number;
-
-        public string Password => password;
+        public User(string email, string firstName, string lastName, string phoneNumber, string password)
+        {
+            this.email = email;
+            first_name = firstName;
+            last_name = lastName;
+            phone_number = phoneNumber;
+            this.password = password;
+        }
     }
 }

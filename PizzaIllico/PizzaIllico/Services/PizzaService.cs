@@ -37,7 +37,7 @@ namespace PizzaIllico.Services
             throw new System.NotImplementedException();
         }
 
-        public async Task inscription(User user)
+        public async Task<bool> inscription(User user)
         {
             Uri uri = new Uri(AllUrl.URL_USER_INSCRIPTION);
 
@@ -59,18 +59,20 @@ namespace PizzaIllico.Services
                     //loginData=  JsonConvert.DeserializeObject<GetLoginData>(contentResponse);
 
                     //    = JsonSerializer.Deserialize<GetLoginData>(response.);
-                    Debug.WriteLine(@"\tTodoItem successfully saved.");
+                    return true;
                 }
-                //else return null;
 
+               
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
                 
                 Debug.WriteLine("IMPOSSIBLE Connect", ex.Message);
-            }
 
+                return false;
+            }
+            return false;
        
         }
 

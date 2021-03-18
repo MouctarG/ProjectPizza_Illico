@@ -55,6 +55,10 @@
               "target": "Package",
               "version": "[12.0.3, )"
             },
+            "ScrollableNumberPicker": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
             "System.Text.Json": {
               "target": "Package",
               "version": "[5.0.1, )"
