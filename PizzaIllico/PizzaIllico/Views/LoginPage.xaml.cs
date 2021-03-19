@@ -15,11 +15,13 @@ using PizzaIllico.Services;
 
 namespace PizzaIllico.Views
 {
+    
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
         public LoginPage()
         {
+            SetValue(NavigationPage.HasNavigationBarProperty, false);
             InitializeComponent();
         }
 
@@ -27,7 +29,7 @@ namespace PizzaIllico.Views
         {
             Login login = new Login("paul@123.fr", "123456");
     
-            GetLoginData loginData=  await App.PizzaManager.getTokenLogin(login);
+            GetLoginData loginData=  await App.PizzaManager.GetTokenLogin(login);
 
                await DisplayAlert ("Alert", loginData.data.access_token, "OK");
 

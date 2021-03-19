@@ -13,7 +13,7 @@ namespace PizzaIllico
         {
             InitializeComponent();
             
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new InscriptionPage());
             PizzaManager = new PizzaManager (new PizzaService());
             
         }

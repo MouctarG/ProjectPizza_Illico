@@ -27,7 +27,7 @@ namespace PizzaIllico.Views
             InitializeComponent();
             pizzaManager = new PizzaManager(new PizzaService());
             itemPizzarias = new List<ItemPizzaria>();
-            pizzaManager.getAllPizzaria(pizzarias =>
+            pizzaManager.GetAllPizzaria(pizzarias =>
             {
                 
                 foreach(var item in pizzarias)

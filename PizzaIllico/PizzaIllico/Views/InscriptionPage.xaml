@@ -12,6 +12,8 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
 
                     </Grid.RowDefinitions>
 
@@ -37,7 +39,11 @@
                         <Button Text="Enregister" HorizontalOptions="CenterAndExpand" TextColor="White"
                                BackgroundColor="Blue" Clicked="Button_OnClicked" />
                     </StackLayout>
-
+                    <StackLayout Grid.Row="6" x:Name="waitLayout"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="Center">
+                        <ActivityIndicator IsRunning="False"/>
+                    </StackLayout>
 
                 </Grid>
                 

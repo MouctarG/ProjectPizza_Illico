@@ -26,7 +26,7 @@ namespace PizzaIllico
             listView.RefreshCommand = new Command((obj) =>
             {
            
-                pizzaManager.getAllPizzaria((pizzarias) =>
+                pizzaManager.GetAllPizzaria((pizzarias) =>
                 {
                     listView.ItemsSource = pizzarias;
                     listView.IsRefreshing = false;
@@ -35,7 +35,7 @@ namespace PizzaIllico
 
             listView.IsVisible = false;
             waitLayout.IsVisible = true;
-        pizzaManager.getAllPizzaria(pizzarias =>
+        pizzaManager.GetAllPizzaria(pizzarias =>
         {
             listView.ItemsSource = pizzarias;
 

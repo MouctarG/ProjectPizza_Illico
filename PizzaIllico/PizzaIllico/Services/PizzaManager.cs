@@ -14,24 +14,28 @@ namespace PizzaIllico.Services
             this._service = pizzaService;
         }
 
-        public Task<GetLoginData> getTokenLogin(Login login)
+        public Task<GetLoginData> GetTokenLogin(Login login)
         {
-            return _service.getTokenLogin(login);
+            return _service.GetTokenLogin(login);
         }
 
-        public void getAllPizzaria(Action<List<ItemPizzaria>> action)
+        public void GetAllPizzaria(Action<List<ItemPizzaria>> action)
         {
-             _service.getAllPizzaria(action);
+             _service.GetAllPizzaria(action);
         }
-        public void getAllPizzaByShop(Action<List<ItemPizza>> action,int id )
+        public void GetAllPizzaByShop(Action<List<ItemPizza>> action,int id )
         {
-            _service.getAllPizzaByShop(action,id);
-        }
-
-        public Task <bool> insription(User user)
-        {
-            return _service.inscription(user);
+            _service.GetAllPizzaByShop(action,id);
         }
 
+        public Task <bool> Insription(UserRegister user)
+        {
+            return _service.Inscription(user);
+        }
+
+        public Task <bool> UpdatePassword(UpdatePassword updatePassword,string token)
+        {
+            return _service.UpdatePassword(updatePassword,token);
+        }
     }
 }

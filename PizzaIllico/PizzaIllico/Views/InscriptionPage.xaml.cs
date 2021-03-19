@@ -15,7 +15,7 @@ namespace PizzaIllico.Views
         public InscriptionPage()
         {
             InitializeComponent();
-           
+
         }
 
         private void Button_OnClicked(object sender, EventArgs e)
@@ -29,21 +29,27 @@ namespace PizzaIllico.Views
             }
             else
             {
-                User user = new User(email.Text,prenom.Text,nom.Text,phone.Text,mdp.Text);
+                UserRegister user = new UserRegister(email.Text,prenom.Text,nom.Text,phone.Text,
+                    mdp.Text);
                 Inscription(user);
 
             }
             
           
         }
-        private async Task  Inscription(User user)
+        private async Task  Inscription(UserRegister user)
         {
-            if (App.PizzaManager.insription(user).Result)
+            waitLayout.IsVisible = true;
+            bool b = await App.PizzaManager.Insription(user);
+            if (b)
             {
+                waitLayout.IsVisible = false;
                 await DisplayAlert ("Inscrit", "Votre compte est créer", "OK");
+                Navigation.PushAsync(new LoginPage());
             }
             else
             {
+                waitLayout.IsVisible = false;
                 await DisplayAlert ("Erreur", "Impossible de creer le compte", "OK");
             }
         }

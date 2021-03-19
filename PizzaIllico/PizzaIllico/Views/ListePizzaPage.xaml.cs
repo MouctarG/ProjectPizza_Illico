@@ -24,7 +24,7 @@ namespace PizzaIllico.Views
             listView.RefreshCommand = new Command((obj) =>
             {
               
-                pizzaManager.getAllPizzaByShop((pizzarias)=>
+                pizzaManager.GetAllPizzaByShop((pizzarias)=>
                 {
                     List<ItemPizza> list = new List<ItemPizza>();
                     foreach (var pz in pizzarias)
@@ -39,7 +39,7 @@ namespace PizzaIllico.Views
 
             listView.IsVisible = false;
             waitLayout.IsVisible = true;
-            pizzaManager.getAllPizzaByShop(pizzarias =>
+            pizzaManager.GetAllPizzaByShop(pizzarias =>
             {
                 List<ItemPizza> list = new List<ItemPizza>();
                 foreach (var pz in pizzarias)
