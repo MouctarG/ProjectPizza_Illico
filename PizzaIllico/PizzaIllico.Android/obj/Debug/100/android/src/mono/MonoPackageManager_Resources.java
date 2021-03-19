@@ -7,27 +7,9 @@ public class MonoPackageManager_Resources {
 		"Microsoft.Bcl.AsyncInterfaces.dll",
 		"Newtonsoft.Json.dll",
 		"PizzaIllico.dll",
-		"Plugin.CurrentActivity.dll",
-		"Plugin.Geolocator.dll",
-		"Plugin.Permissions.dll",
+		"Storm.Mvvm.Forms.dll",
 		"System.Text.Encodings.Web.dll",
 		"System.Text.Json.dll",
-		"Xamarin.Android.Arch.Core.Common.dll",
-		"Xamarin.Android.Arch.Core.Runtime.dll",
-		"Xamarin.Android.Arch.Lifecycle.Common.dll",
-		"Xamarin.Android.Arch.Lifecycle.LiveData.Core.dll",
-		"Xamarin.Android.Arch.Lifecycle.LiveData.dll",
-		"Xamarin.Android.Arch.Lifecycle.Runtime.dll",
-		"Xamarin.Android.Arch.Lifecycle.ViewModel.dll",
-		"Xamarin.Android.Support.Annotations.dll",
-		"Xamarin.Android.Support.Collections.dll",
-		"Xamarin.Android.Support.Compat.dll",
-		"Xamarin.Android.Support.Core.Utils.dll",
-		"Xamarin.Android.Support.DocumentFile.dll",
-		"Xamarin.Android.Support.Loader.dll",
-		"Xamarin.Android.Support.LocalBroadcastManager.dll",
-		"Xamarin.Android.Support.Print.dll",
-		"Xamarin.Android.Support.VersionedParcelable.dll",
 		"Xamarin.AndroidX.Activity.dll",
 		"Xamarin.AndroidX.Annotation.dll",
 		"Xamarin.AndroidX.Annotation.Experimental.dll",
@@ -87,5 +69,4 @@ public class MonoPackageManager_Resources {
 	};
 	public static String[] Dependencies = new String[]{
 	};
-	public static String ApiPackageName = "Mono.Android.Platform.ApiLevel_29";
 }

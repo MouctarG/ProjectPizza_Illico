@@ -1,33 +1,25 @@
 ﻿using System;
 using PizzaIllico.Services;
 using PizzaIllico.Views;
+using Storm.Mvvm;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace PizzaIllico
 {
-    public partial class App : Application
+    public partial class App : MvvmApplication
     {
-        public static PizzaManager PizzaManager { get; private set; }
-        public App()
+        public App() : base(() => new LoginPage(), RegisterServices)
         {
             InitializeComponent();
             
-            MainPage = new NavigationPage(new InscriptionPage());
-            PizzaManager = new PizzaManager (new PizzaService());
-            
         }
 
-        protected override void OnStart()
+        private static void RegisterServices()
         {
-        }
+            DependencyService.Register<ILoginService, LoginService>();
 
-        protected override void OnSleep()
-        {
-        }
 
-        protected override void OnResume()
-        {
         }
     }
 }

@@ -20,17 +20,17 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Plugin.Permissions/5.0.0-beta": {
+      "Storm.Mvvm.Forms/2.4.0": {
         "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "4.8.0.1534"
+        },
         "compile": {
-          "lib/xamarinios10/Plugin.Permissions.dll": {}
+          "lib/netstandard2.0/Storm.Mvvm.Forms.dll": {}
         },
         "runtime": {
-          "lib/xamarinios10/Plugin.Permissions.dll": {}
+          "lib/netstandard2.0/Storm.Mvvm.Forms.dll": {}
         }
-      },
-      "ScrollableNumberPicker/2.0.0": {
-        "type": "package"
       },
       "System.Buffers/4.5.1": {
         "type": "package",
@@ -81,21 +81,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/System.Text.Json.dll": {}
-        }
-      },
-      "Xam.Plugin.Geolocator/4.6.2-beta": {
-        "type": "package",
-        "dependencies": {
-          "Plugin.Permissions": "5.0.0-beta"
-        },
-        "frameworkAssemblies": [
-          "System.Drawing.Common.dll"
-        ],
-        "compile": {
-          "lib/xamarinios10/Plugin.Geolocator.dll": {}
-        },
-        "runtime": {
-          "lib/xamarinios10/Plugin.Geolocator.dll": {}
         }
       },
       "Xamarin.Essentials/1.6.1": {
@@ -238,31 +223,15 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
-      "Xamarin.Forms.Maps/5.0.0.2012": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "5.0.0.2012"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {},
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {},
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll": {}
-        }
-      },
       "PizzaIllico/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
-          "ScrollableNumberPicker": "2.0.0",
+          "Storm.Mvvm.Forms": "2.4.0",
           "System.Text.Json": "5.0.1",
-          "Xam.Plugin.Geolocator": "4.6.2-beta",
           "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012",
-          "Xamarin.Forms.Maps": "5.0.0.2012"
+          "Xamarin.Forms": "5.0.0.2012"
         },
         "compile": {
           "bin/placeholder/PizzaIllico.dll": {}
@@ -291,17 +260,17 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Plugin.Permissions/5.0.0-beta": {
+      "Storm.Mvvm.Forms/2.4.0": {
         "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "4.8.0.1534"
+        },
         "compile": {
-          "lib/xamarinios10/Plugin.Permissions.dll": {}
+          "lib/netstandard2.0/Storm.Mvvm.Forms.dll": {}
         },
         "runtime": {
-          "lib/xamarinios10/Plugin.Permissions.dll": {}
+          "lib/netstandard2.0/Storm.Mvvm.Forms.dll": {}
         }
-      },
-      "ScrollableNumberPicker/2.0.0": {
-        "type": "package"
       },
       "System.Buffers/4.5.1": {
         "type": "package",
@@ -352,21 +321,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/System.Text.Json.dll": {}
-        }
-      },
-      "Xam.Plugin.Geolocator/4.6.2-beta": {
-        "type": "package",
-        "dependencies": {
-          "Plugin.Permissions": "5.0.0-beta"
-        },
-        "frameworkAssemblies": [
-          "System.Drawing.Common.dll"
-        ],
-        "compile": {
-          "lib/xamarinios10/Plugin.Geolocator.dll": {}
-        },
-        "runtime": {
-          "lib/xamarinios10/Plugin.Geolocator.dll": {}
         }
       },
       "Xamarin.Essentials/1.6.1": {
@@ -509,31 +463,15 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
-      "Xamarin.Forms.Maps/5.0.0.2012": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "5.0.0.2012"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {},
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {},
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll": {}
-        }
-      },
       "PizzaIllico/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
-          "ScrollableNumberPicker": "2.0.0",
+          "Storm.Mvvm.Forms": "2.4.0",
           "System.Text.Json": "5.0.1",
-          "Xam.Plugin.Geolocator": "4.6.2-beta",
           "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012",
-          "Xamarin.Forms.Maps": "5.0.0.2012"
+          "Xamarin.Forms": "5.0.0.2012"
         },
         "compile": {
           "bin/placeholder/PizzaIllico.dll": {}
@@ -562,17 +500,17 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Plugin.Permissions/5.0.0-beta": {
+      "Storm.Mvvm.Forms/2.4.0": {
         "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "4.8.0.1534"
+        },
         "compile": {
-          "lib/xamarinios10/Plugin.Permissions.dll": {}
+          "lib/netstandard2.0/Storm.Mvvm.Forms.dll": {}
         },
         "runtime": {
-          "lib/xamarinios10/Plugin.Permissions.dll": {}
+          "lib/netstandard2.0/Storm.Mvvm.Forms.dll": {}
         }
-      },
-      "ScrollableNumberPicker/2.0.0": {
-        "type": "package"
       },
       "System.Buffers/4.5.1": {
         "type": "package",
@@ -623,21 +561,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/System.Text.Json.dll": {}
-        }
-      },
-      "Xam.Plugin.Geolocator/4.6.2-beta": {
-        "type": "package",
-        "dependencies": {
-          "Plugin.Permissions": "5.0.0-beta"
-        },
-        "frameworkAssemblies": [
-          "System.Drawing.Common.dll"
-        ],
-        "compile": {
-          "lib/xamarinios10/Plugin.Geolocator.dll": {}
-        },
-        "runtime": {
-          "lib/xamarinios10/Plugin.Geolocator.dll": {}
         }
       },
       "Xamarin.Essentials/1.6.1": {
@@ -780,31 +703,15 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
-      "Xamarin.Forms.Maps/5.0.0.2012": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "5.0.0.2012"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {},
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {},
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll": {}
-        }
-      },
       "PizzaIllico/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
-          "ScrollableNumberPicker": "2.0.0",
+          "Storm.Mvvm.Forms": "2.4.0",
           "System.Text.Json": "5.0.1",
-          "Xam.Plugin.Geolocator": "4.6.2-beta",
           "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012",
-          "Xamarin.Forms.Maps": "5.0.0.2012"
+          "Xamarin.Forms": "5.0.0.2012"
         },
         "compile": {
           "bin/placeholder/PizzaIllico.dll": {}
@@ -833,17 +740,17 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Plugin.Permissions/5.0.0-beta": {
+      "Storm.Mvvm.Forms/2.4.0": {
         "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "4.8.0.1534"
+        },
         "compile": {
-          "lib/xamarinios10/Plugin.Permissions.dll": {}
+          "lib/netstandard2.0/Storm.Mvvm.Forms.dll": {}
         },
         "runtime": {
-          "lib/xamarinios10/Plugin.Permissions.dll": {}
+          "lib/netstandard2.0/Storm.Mvvm.Forms.dll": {}
         }
-      },
-      "ScrollableNumberPicker/2.0.0": {
-        "type": "package"
       },
       "System.Buffers/4.5.1": {
         "type": "package",
@@ -894,21 +801,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/System.Text.Json.dll": {}
-        }
-      },
-      "Xam.Plugin.Geolocator/4.6.2-beta": {
-        "type": "package",
-        "dependencies": {
-          "Plugin.Permissions": "5.0.0-beta"
-        },
-        "frameworkAssemblies": [
-          "System.Drawing.Common.dll"
-        ],
-        "compile": {
-          "lib/xamarinios10/Plugin.Geolocator.dll": {}
-        },
-        "runtime": {
-          "lib/xamarinios10/Plugin.Geolocator.dll": {}
         }
       },
       "Xamarin.Essentials/1.6.1": {
@@ -1051,31 +943,15 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
-      "Xamarin.Forms.Maps/5.0.0.2012": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "5.0.0.2012"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {},
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {},
-          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll": {}
-        }
-      },
       "PizzaIllico/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
-          "ScrollableNumberPicker": "2.0.0",
+          "Storm.Mvvm.Forms": "2.4.0",
           "System.Text.Json": "5.0.1",
-          "Xam.Plugin.Geolocator": "4.6.2-beta",
           "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012",
-          "Xamarin.Forms.Maps": "5.0.0.2012"
+          "Xamarin.Forms": "5.0.0.2012"
         },
         "compile": {
           "bin/placeholder/PizzaIllico.dll": {}
@@ -1140,47 +1016,16 @@
         "packageIcon.png"
       ]
     },
-    "Plugin.Permissions/5.0.0-beta": {
-      "sha512": "Y82iRNblpHbVGIPyyd5fH857IkTY/Mes0TWISg6HuT69OOgSYeUPHJtue8Fpx6GtsH857OHt465aJRWDWL7clg==",
+    "Storm.Mvvm.Forms/2.4.0": {
+      "sha512": "2SSy2zdUUgLZ8j65kUuDHwm5b+vofthdjvs0Y9qqe/mEvcmdmZHafdJZN2vwFGbSxwV8pmAQISdwcovuWaksNA==",
       "type": "package",
-      "path": "plugin.permissions/5.0.0-beta",
+      "path": "storm.mvvm.forms/2.4.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/monoandroid70/Plugin.Permissions.dll",
-        "lib/monoandroid70/Plugin.Permissions.pdb",
-        "lib/monoandroid71/Plugin.Permissions.dll",
-        "lib/monoandroid71/Plugin.Permissions.pdb",
-        "lib/monoandroid80/Plugin.Permissions.dll",
-        "lib/monoandroid80/Plugin.Permissions.pdb",
-        "lib/monoandroid81/Plugin.Permissions.dll",
-        "lib/monoandroid81/Plugin.Permissions.pdb",
-        "lib/monoandroid90/Plugin.Permissions.dll",
-        "lib/monoandroid90/Plugin.Permissions.pdb",
-        "lib/netstandard1.0/Plugin.Permissions.dll",
-        "lib/netstandard1.0/Plugin.Permissions.pdb",
-        "lib/netstandard2.0/Plugin.Permissions.dll",
-        "lib/netstandard2.0/Plugin.Permissions.pdb",
-        "lib/uap10.0.16299/Plugin.Permissions.dll",
-        "lib/uap10.0.16299/Plugin.Permissions.pdb",
-        "lib/uap10.0.16299/Plugin.Permissions.pri",
-        "lib/xamarinios10/Plugin.Permissions.dll",
-        "lib/xamarinios10/Plugin.Permissions.pdb",
-        "plugin.permissions.5.0.0-beta.nupkg.sha512",
-        "plugin.permissions.nuspec",
-        "readme.txt"
-      ]
-    },
-    "ScrollableNumberPicker/2.0.0": {
-      "sha512": "ZGJZUqy8TObj/r2hALgUNFW+AoibgXkd5eegBDd7kQGgFDm5Px+pGXrc7tic2JzVoP8OrdQKlBlQYm3nyGLb4A==",
-      "type": "package",
-      "path": "scrollablenumberpicker/2.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/ScrollableNumberPicker.dll",
-        "scrollablenumberpicker.2.0.0.nupkg.sha512",
-        "scrollablenumberpicker.nuspec"
+        "lib/netstandard2.0/Storm.Mvvm.Forms.dll",
+        "storm.mvvm.forms.2.4.0.nupkg.sha512",
+        "storm.mvvm.forms.nuspec"
       ]
     },
     "System.Buffers/4.5.1": {
@@ -1339,52 +1184,6 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
-      ]
-    },
-    "Xam.Plugin.Geolocator/4.6.2-beta": {
-      "sha512": "UYqWCh2sHQUV987rSwsehirWv60JTuySq0aqXeo93hcHo+jBWfLzheV3xqyoc4ISf+z1ERBKZw6VT2iMabbIIw==",
-      "type": "package",
-      "path": "xam.plugin.geolocator/4.6.2-beta",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/monoandroid70/Plugin.Geolocator.dll",
-        "lib/monoandroid70/Plugin.Geolocator.pdb",
-        "lib/monoandroid70/Plugin.Geolocator.xml",
-        "lib/monoandroid71/Plugin.Geolocator.dll",
-        "lib/monoandroid71/Plugin.Geolocator.pdb",
-        "lib/monoandroid71/Plugin.Geolocator.xml",
-        "lib/monoandroid80/Plugin.Geolocator.dll",
-        "lib/monoandroid80/Plugin.Geolocator.pdb",
-        "lib/monoandroid80/Plugin.Geolocator.xml",
-        "lib/monoandroid81/Plugin.Geolocator.dll",
-        "lib/monoandroid81/Plugin.Geolocator.pdb",
-        "lib/monoandroid81/Plugin.Geolocator.xml",
-        "lib/monoandroid90/Plugin.Geolocator.dll",
-        "lib/monoandroid90/Plugin.Geolocator.pdb",
-        "lib/monoandroid90/Plugin.Geolocator.xml",
-        "lib/netstandard1.0/Plugin.Geolocator.dll",
-        "lib/netstandard1.0/Plugin.Geolocator.pdb",
-        "lib/netstandard1.0/Plugin.Geolocator.xml",
-        "lib/netstandard2.0/Plugin.Geolocator.dll",
-        "lib/netstandard2.0/Plugin.Geolocator.pdb",
-        "lib/netstandard2.0/Plugin.Geolocator.xml",
-        "lib/uap10.0.16299/Plugin.Geolocator.dll",
-        "lib/uap10.0.16299/Plugin.Geolocator.pdb",
-        "lib/uap10.0.16299/Plugin.Geolocator.pri",
-        "lib/uap10.0.16299/Plugin.Geolocator.xml",
-        "lib/xamarinios10/Plugin.Geolocator.dll",
-        "lib/xamarinios10/Plugin.Geolocator.pdb",
-        "lib/xamarinios10/Plugin.Geolocator.xml",
-        "lib/xamarinmac20/Plugin.Geolocator.dll",
-        "lib/xamarinmac20/Plugin.Geolocator.pdb",
-        "lib/xamarinmac20/Plugin.Geolocator.xml",
-        "lib/xamarintvos10/Plugin.Geolocator.dll",
-        "lib/xamarintvos10/Plugin.Geolocator.pdb",
-        "lib/xamarintvos10/Plugin.Geolocator.xml",
-        "readme.txt",
-        "xam.plugin.geolocator.4.6.2-beta.nupkg.sha512",
-        "xam.plugin.geolocator.nuspec"
       ]
     },
     "Xamarin.Essentials/1.6.1": {
@@ -1654,40 +1453,6 @@
         "xamarin.forms.nuspec"
       ]
     },
-    "Xamarin.Forms.Maps/5.0.0.2012": {
-      "sha512": "Zq1mv6sybHzQYWcOYOuLDV1LWQiioGN6kmleau7frhkVLf68FSXd/GIq4uA92TIOYMW9MxmZKOSBW8VVPis5pQ==",
-      "type": "package",
-      "path": "xamarin.forms.maps/5.0.0.2012",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Assets/xamarin_128x128.png",
-        "lib/MonoAndroid10.0/Xamarin.Forms.Maps.Android.dll",
-        "lib/MonoAndroid10.0/Xamarin.Forms.Maps.dll",
-        "lib/MonoAndroid10.0/Xamarin.Forms.Maps.xml",
-        "lib/Xamarin.Mac/Xamarin.Forms.Maps.dll",
-        "lib/Xamarin.Mac/Xamarin.Forms.Maps.macOS.dll",
-        "lib/Xamarin.Mac/Xamarin.Forms.Maps.xml",
-        "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll",
-        "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll",
-        "lib/Xamarin.iOS10/Xamarin.Forms.Maps.xml",
-        "lib/netstandard1.0/Xamarin.Forms.Maps.dll",
-        "lib/netstandard1.0/Xamarin.Forms.Maps.xml",
-        "lib/netstandard2.0/Xamarin.Forms.Maps.dll",
-        "lib/netstandard2.0/Xamarin.Forms.Maps.xml",
-        "lib/tizen40/Xamarin.Forms.Maps.Tizen.dll",
-        "lib/tizen40/Xamarin.Forms.Maps.dll",
-        "lib/tizen40/Xamarin.Forms.Maps.xml",
-        "lib/uap10.0.14393/Xamarin.Forms.Maps.UWP.dll",
-        "lib/uap10.0.14393/Xamarin.Forms.Maps.UWP.pri",
-        "lib/uap10.0.14393/Xamarin.Forms.Maps.dll",
-        "lib/uap10.0.16299/Xamarin.Forms.Maps.UWP.dll",
-        "lib/uap10.0.16299/Xamarin.Forms.Maps.UWP.pri",
-        "lib/uap10.0.16299/Xamarin.Forms.Maps.dll",
-        "xamarin.forms.maps.5.0.0.2012.nupkg.sha512",
-        "xamarin.forms.maps.nuspec"
-      ]
-    },
     "PizzaIllico/1.0.0": {
       "type": "project",
       "path": "../PizzaIllico/PizzaIllico.csproj",
@@ -1702,24 +1467,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\guind\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet": {}
+    "C:\\Users\\tmhgb\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\guind\\source\\repos\\PizzaIllico\\PizzaIllico\\PizzaIllico.iOS\\PizzaIllico.iOS.csproj",
+      "projectUniqueName": "M:\\tmhgboho\\workspace\\xamarin\\ProjectPizza_Illico\\PizzaIllico\\PizzaIllico.iOS\\PizzaIllico.iOS.csproj",
       "projectName": "PizzaIllico.iOS",
-      "projectPath": "C:\\Users\\guind\\source\\repos\\PizzaIllico\\PizzaIllico\\PizzaIllico.iOS\\PizzaIllico.iOS.csproj",
-      "packagesPath": "C:\\Users\\guind\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\guind\\source\\repos\\PizzaIllico\\PizzaIllico\\PizzaIllico.iOS\\obj\\",
+      "projectPath": "M:\\tmhgboho\\workspace\\xamarin\\ProjectPizza_Illico\\PizzaIllico\\PizzaIllico.iOS\\PizzaIllico.iOS.csproj",
+      "packagesPath": "C:\\Users\\tmhgb\\.nuget\\packages\\",
+      "outputPath": "M:\\tmhgboho\\workspace\\xamarin\\ProjectPizza_Illico\\PizzaIllico\\PizzaIllico.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet"
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\guind\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tmhgb\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -1733,8 +1498,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\guind\\source\\repos\\PizzaIllico\\PizzaIllico\\PizzaIllico\\PizzaIllico.csproj": {
-              "projectPath": "C:\\Users\\guind\\source\\repos\\PizzaIllico\\PizzaIllico\\PizzaIllico\\PizzaIllico.csproj"
+            "M:\\tmhgboho\\workspace\\xamarin\\ProjectPizza_Illico\\PizzaIllico\\PizzaIllico\\PizzaIllico.csproj": {
+              "projectPath": "M:\\tmhgboho\\workspace\\xamarin\\ProjectPizza_Illico\\PizzaIllico\\PizzaIllico\\PizzaIllico.csproj"
             }
           }
         }
@@ -1765,43 +1530,5 @@
         "#import": []
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1202",
-      "level": "Error",
-      "message": "Package ScrollableNumberPicker 2.0.0 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0). Package ScrollableNumberPicker 2.0.0 supports: net (.NETFramework,Version=v0.0)",
-      "libraryId": "ScrollableNumberPicker",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0"
-      ]
-    },
-    {
-      "code": "NU1202",
-      "level": "Error",
-      "message": "Package ScrollableNumberPicker 2.0.0 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win. Package ScrollableNumberPicker 2.0.0 supports: net (.NETFramework,Version=v0.0)",
-      "libraryId": "ScrollableNumberPicker",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0/win"
-      ]
-    },
-    {
-      "code": "NU1202",
-      "level": "Error",
-      "message": "Package ScrollableNumberPicker 2.0.0 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win-x64. Package ScrollableNumberPicker 2.0.0 supports: net (.NETFramework,Version=v0.0)",
-      "libraryId": "ScrollableNumberPicker",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0/win-x64"
-      ]
-    },
-    {
-      "code": "NU1202",
-      "level": "Error",
-      "message": "Package ScrollableNumberPicker 2.0.0 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win-x86. Package ScrollableNumberPicker 2.0.0 supports: net (.NETFramework,Version=v0.0)",
-      "libraryId": "ScrollableNumberPicker",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0/win-x86"
-      ]
-    }
-  ]
+  }
 }

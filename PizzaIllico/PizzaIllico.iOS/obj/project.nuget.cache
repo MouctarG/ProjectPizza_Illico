@@ -1,59 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "mNVGth6xSRhLM2LW6OK/p5PLok37U03H976QnlW3DAb2lkJFczOGCeWEVmCnJlqpGCoMHfLN0V4l+XgqKZBz2g==",
-  "success": false,
-  "projectFilePath": "C:\\Users\\guind\\source\\repos\\PizzaIllico\\PizzaIllico\\PizzaIllico.iOS\\PizzaIllico.iOS.csproj",
+  "dgSpecHash": "xobMhZo7X69GyVGTB03rZTjl+ROe+1uAcnMJ0aesMC0lS01n6oaExagSspnnua2D4Xi5FO+x6oh50dIpeAkQqw==",
+  "success": true,
+  "projectFilePath": "M:\\tmhgboho\\workspace\\xamarin\\ProjectPizza_Illico\\PizzaIllico\\PizzaIllico.iOS\\PizzaIllico.iOS.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\guind\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
-    "C:\\Users\\guind\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
-    "C:\\Users\\guind\\.nuget\\packages\\plugin.permissions\\5.0.0-beta\\plugin.permissions.5.0.0-beta.nupkg.sha512",
-    "C:\\Users\\guind\\.nuget\\packages\\scrollablenumberpicker\\2.0.0\\scrollablenumberpicker.2.0.0.nupkg.sha512",
-    "C:\\Users\\guind\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
-    "C:\\Users\\guind\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Users\\guind\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
-    "C:\\Users\\guind\\.nuget\\packages\\system.text.encodings.web\\5.0.0\\system.text.encodings.web.5.0.0.nupkg.sha512",
-    "C:\\Users\\guind\\.nuget\\packages\\system.text.json\\5.0.1\\system.text.json.5.0.1.nupkg.sha512",
-    "C:\\Users\\guind\\.nuget\\packages\\xam.plugin.geolocator\\4.6.2-beta\\xam.plugin.geolocator.4.6.2-beta.nupkg.sha512",
-    "C:\\Users\\guind\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
-    "C:\\Users\\guind\\.nuget\\packages\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512",
-    "C:\\Users\\guind\\.nuget\\packages\\xamarin.forms.maps\\5.0.0.2012\\xamarin.forms.maps.5.0.0.2012.nupkg.sha512"
+    "C:\\Users\\tmhgb\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
+    "C:\\Users\\tmhgb\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\tmhgb\\.nuget\\packages\\storm.mvvm.forms\\2.4.0\\storm.mvvm.forms.2.4.0.nupkg.sha512",
+    "C:\\Users\\tmhgb\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\tmhgb\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\tmhgb\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
+    "C:\\Users\\tmhgb\\.nuget\\packages\\system.text.encodings.web\\5.0.0\\system.text.encodings.web.5.0.0.nupkg.sha512",
+    "C:\\Users\\tmhgb\\.nuget\\packages\\system.text.json\\5.0.1\\system.text.json.5.0.1.nupkg.sha512",
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1202",
-      "level": "Error",
-      "message": "Package ScrollableNumberPicker 2.0.0 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0). Package ScrollableNumberPicker 2.0.0 supports: net (.NETFramework,Version=v0.0)",
-      "libraryId": "ScrollableNumberPicker",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0"
-      ]
-    },
-    {
-      "code": "NU1202",
-      "level": "Error",
-      "message": "Package ScrollableNumberPicker 2.0.0 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win. Package ScrollableNumberPicker 2.0.0 supports: net (.NETFramework,Version=v0.0)",
-      "libraryId": "ScrollableNumberPicker",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0/win"
-      ]
-    },
-    {
-      "code": "NU1202",
-      "level": "Error",
-      "message": "Package ScrollableNumberPicker 2.0.0 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win-x64. Package ScrollableNumberPicker 2.0.0 supports: net (.NETFramework,Version=v0.0)",
-      "libraryId": "ScrollableNumberPicker",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0/win-x64"
-      ]
-    },
-    {
-      "code": "NU1202",
-      "level": "Error",
-      "message": "Package ScrollableNumberPicker 2.0.0 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win-x86. Package ScrollableNumberPicker 2.0.0 supports: net (.NETFramework,Version=v0.0)",
-      "libraryId": "ScrollableNumberPicker",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0/win-x86"
-      ]
-    }
-  ]
+  "logs": []
 }

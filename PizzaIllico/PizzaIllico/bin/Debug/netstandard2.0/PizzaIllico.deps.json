@@ -11,12 +11,10 @@
         "dependencies": {
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "12.0.3",
-          "ScrollableNumberPicker": "2.0.0",
+          "Storm.Mvvm.Forms": "2.4.0",
           "System.Text.Json": "5.0.1",
-          "Xam.Plugin.Geolocator": "4.6.2-beta",
           "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012",
-          "Xamarin.Forms.Maps": "5.0.0.2012"
+          "Xamarin.Forms": "5.0.0.2012"
         },
         "runtime": {
           "PizzaIllico.dll": {}
@@ -47,9 +45,12 @@
           }
         }
       },
-      "ScrollableNumberPicker/2.0.0": {
+      "Storm.Mvvm.Forms/2.4.0": {
+        "dependencies": {
+          "Xamarin.Forms": "5.0.0.2012"
+        },
         "runtime": {
-          "lib/ScrollableNumberPicker.dll": {
+          "lib/netstandard2.0/Storm.Mvvm.Forms.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -131,14 +132,6 @@
           }
         }
       },
-      "Xam.Plugin.Geolocator/4.6.2-beta": {
-        "runtime": {
-          "lib/netstandard2.0/Plugin.Geolocator.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
       "Xamarin.Essentials/1.6.1": {
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
@@ -161,17 +154,6 @@
             "fileVersion": "5.0.0.671"
           },
           "lib/netstandard2.0/Xamarin.Forms.Xaml.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "5.0.0.671"
-          }
-        }
-      },
-      "Xamarin.Forms.Maps/5.0.0.2012": {
-        "dependencies": {
-          "Xamarin.Forms": "5.0.0.2012"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Xamarin.Forms.Maps.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "5.0.0.671"
           }
@@ -213,12 +195,12 @@
       "path": "newtonsoft.json/12.0.3",
       "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
     },
-    "ScrollableNumberPicker/2.0.0": {
+    "Storm.Mvvm.Forms/2.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ZGJZUqy8TObj/r2hALgUNFW+AoibgXkd5eegBDd7kQGgFDm5Px+pGXrc7tic2JzVoP8OrdQKlBlQYm3nyGLb4A==",
-      "path": "scrollablenumberpicker/2.0.0",
-      "hashPath": "scrollablenumberpicker.2.0.0.nupkg.sha512"
+      "sha512": "sha512-2SSy2zdUUgLZ8j65kUuDHwm5b+vofthdjvs0Y9qqe/mEvcmdmZHafdJZN2vwFGbSxwV8pmAQISdwcovuWaksNA==",
+      "path": "storm.mvvm.forms/2.4.0",
+      "hashPath": "storm.mvvm.forms.2.4.0.nupkg.sha512"
     },
     "System.Buffers/4.5.1": {
       "type": "package",
@@ -269,13 +251,6 @@
       "path": "system.threading.tasks.extensions/4.5.4",
       "hashPath": "system.threading.tasks.extensions.4.5.4.nupkg.sha512"
     },
-    "Xam.Plugin.Geolocator/4.6.2-beta": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-UYqWCh2sHQUV987rSwsehirWv60JTuySq0aqXeo93hcHo+jBWfLzheV3xqyoc4ISf+z1ERBKZw6VT2iMabbIIw==",
-      "path": "xam.plugin.geolocator/4.6.2-beta",
-      "hashPath": "xam.plugin.geolocator.4.6.2-beta.nupkg.sha512"
-    },
     "Xamarin.Essentials/1.6.1": {
       "type": "package",
       "serviceable": true,
@@ -289,13 +264,6 @@
       "sha512": "sha512-Rqc6xvWR/sf+Db5+qRCFmuYTWVp04QWRfwPto2/JHbShSy4Ed53Q2jpoFzsoloXkJA6saD236PlaWAhT6vI4gw==",
       "path": "xamarin.forms/5.0.0.2012",
       "hashPath": "xamarin.forms.5.0.0.2012.nupkg.sha512"
-    },
-    "Xamarin.Forms.Maps/5.0.0.2012": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Zq1mv6sybHzQYWcOYOuLDV1LWQiioGN6kmleau7frhkVLf68FSXd/GIq4uA92TIOYMW9MxmZKOSBW8VVPis5pQ==",
-      "path": "xamarin.forms.maps/5.0.0.2012",
-      "hashPath": "xamarin.forms.maps.5.0.0.2012.nupkg.sha512"
     }
   }
 }
