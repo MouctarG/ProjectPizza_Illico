@@ -16,6 +16,6 @@ namespace PizzaIllico.Models
         public string address { get; set; }
         public string latitude { get; set; }
         public string longitude { get; set; }
-        public string minutes_per_kilometer { get; set; }
+        public long minutes_per_kilometer { get; set; }
     }
 }

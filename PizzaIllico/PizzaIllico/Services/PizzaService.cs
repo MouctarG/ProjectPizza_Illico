@@ -238,7 +238,26 @@ namespace PizzaIllico.Services
             return false;
 
         }
+
+
+        public void SortPizzarias(List<ItemPizzaria> pizzerias)
+        {
+            if (pizzerias == null ) return;
+            pizzerias.Sort((p1, p2) =>
+            {
+                if (p1 == null) return (p2 == null) ? 1 : 0;      // si p2 existe il est plus proche que null
+                else if (p2 == null) return 1;                     // p1 plus proche que null
+                else
+                {
+                    long res = p2.minutes_per_kilometer - p1.minutes_per_kilometer;
+                    if (res == 0) return 0;
+                    else return res < 0 ? 1 : -1;
+
+                };
+            });
+
+        }
     }
-    
+
 }
 

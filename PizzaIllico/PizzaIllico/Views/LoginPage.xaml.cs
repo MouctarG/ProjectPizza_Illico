@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using PizzaIllico.Config;
 using PizzaIllico.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.Text.Json;
-using PizzaIllico.Services;
 
 
 namespace PizzaIllico.Views

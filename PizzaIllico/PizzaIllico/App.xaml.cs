@@ -13,9 +13,9 @@ namespace PizzaIllico
         {
             InitializeComponent();
             
-            MainPage = new NavigationPage(new InscriptionPage());
             PizzaManager = new PizzaManager (new PizzaService());
-            
+            MainPage = new NavigationPage(new MapPage());
+
         }
 
         protected override void OnStart()

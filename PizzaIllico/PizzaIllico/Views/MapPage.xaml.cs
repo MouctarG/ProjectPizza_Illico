@@ -2,10 +2,6 @@
 using PizzaIllico.Services;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Plugin.Geolocator;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Forms.Maps;
@@ -37,7 +33,7 @@ namespace PizzaIllico.Views
                         name = item.name,
                         address = item.address,
                        // Location = place.geometry.location,
-                        Position = new Position(Convert.ToDouble(item.latitude), 
+                        Position = new Xamarin.Forms.Maps.Position(Convert.ToDouble(item.latitude), 
                             Convert.ToDouble( item.longitude))
                         //Icon = place.icon,
                         //Distance = $"{GetDistance(lat1, lon1, place.geometry.location.lat, place.geometry.location.lng, DistanceUnit.Kiliometers).ToString("N2")}km",
@@ -50,7 +46,7 @@ namespace PizzaIllico.Views
                 
             
                 
-             MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(48.856614,2.3522219), Distance.FromKilometers(100)));
+             MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Xamarin.Forms.Maps.Position(48.856614,2.3522219), Distance.FromKilometers(100)));
                
     
             });

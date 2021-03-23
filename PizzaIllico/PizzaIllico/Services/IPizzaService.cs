@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using PizzaIllico.Models;
 
@@ -14,5 +15,6 @@ namespace PizzaIllico.Services
         void GetAllPizzaByShop(Action<List<ItemPizza>> action, int id);
         
         Task <bool> UpdatePassword(UpdatePassword updatePassword,string token);
+        void SortPizzarias(List<ItemPizzaria> pizzerias);
     }
 }

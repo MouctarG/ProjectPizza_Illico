@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PizzaIllico.Models;
+﻿using PizzaIllico.Models;
 using PizzaIllico.Services;
 using PizzaIllico.Views;
 using Xamarin.Forms;
@@ -15,19 +9,21 @@ namespace PizzaIllico
     public partial class MainPage : ContentPage
     {
         private PizzaManager pizzaManager;
-        
-        
+
         public MainPage()
         {
             SetValue(NavigationPage.HasNavigationBarProperty, false);
             InitializeComponent();
             pizzaManager = new PizzaManager (new PizzaService());
-            
+
+
             listView.RefreshCommand = new Command((obj) =>
             {
            
                 pizzaManager.GetAllPizzaria((pizzarias) =>
                 {
+
+                    pizzaManager.SortPizzarias(pizzarias);
                     listView.ItemsSource = pizzarias;
                     listView.IsRefreshing = false;
                 });
@@ -37,6 +33,7 @@ namespace PizzaIllico
             waitLayout.IsVisible = true;
         pizzaManager.GetAllPizzaria(pizzarias =>
         {
+            pizzaManager.SortPizzarias(pizzarias);
             listView.ItemsSource = pizzarias;
 
             listView.IsVisible = true;
