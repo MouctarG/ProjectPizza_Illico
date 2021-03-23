@@ -1,11 +1,9 @@
-﻿using PizzaIllico.Resources.Config;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
+using PizzaIllico.Resources.Config;
 
-namespace PizzaIllico.Models
+namespace PizzaIllico.Models.Authentication
 {
-    class LoginInput
+    class AuthenticationLoginRequest
     {
         private string login;
         private string password;
@@ -26,7 +24,7 @@ namespace PizzaIllico.Models
         public string Client_secret { get => client_secret; }
 
 
-        public LoginInput(string login, string password)
+        public AuthenticationLoginRequest(string login, string password)
         {
             this.login = login;
             this.password = password;

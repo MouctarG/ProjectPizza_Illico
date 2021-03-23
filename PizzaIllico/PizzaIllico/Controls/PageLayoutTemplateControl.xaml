@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PizzaIllico.Controls.PageLayoutTemplateControl"
+             Title="PizzaIllico" >
+    <ContentPage.Resources>
+        <Style TargetType="Entry">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="FontSize"
+                                        Value="15" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Focused">
+                            <VisualState.Setters>
+                                <Setter Property="FontSize"
+                                        Value="30" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+
+        <ControlTemplate x:Key="PageBlueLayoutTemplate">
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.8*" />
+                    <RowDefinition Height="0.1*" />
+                </Grid.RowDefinitions>
+                
+                <ContentPresenter Grid.Row="0" />
+
+                <StackLayout Orientation="Horizontal" Grid.Row="1"  >
+                    <Button  Grid.Column="0"  Text="Home"
+                             TextColor="DarkSlateGray" TextTransform="Lowercase" 
+                             VerticalOptions="FillAndExpand" 
+                             HorizontalOptions="FillAndExpand" 
+                             BackgroundColor="{TemplateBinding GoHomeButtonBackgroundColor}"  
+                             Command="{TemplateBinding GoHomeCommand}" 
+                             IsEnabled="{TemplateBinding GoHomeIsEnabled}" />
+
+                    <Button   Grid.Column="1" Text="Map" 
+                              TextColor="DarkSlateGray"   TextTransform="Lowercase" 
+                             VerticalOptions="FillAndExpand" 
+                             HorizontalOptions="FillAndExpand" 
+                               BackgroundColor="{TemplateBinding GoToMapButtonBackgroundColor}" 
+                               Command="{TemplateBinding GoToMapCommand}" 
+                              IsEnabled="{TemplateBinding GoToMapIsEnabled}" />
+
+                    <Button  Grid.Column="2" Text="Registration" 
+                             TextColor="DarkSlateGray"  TextTransform="Lowercase" 
+                             VerticalOptions="FillAndExpand" 
+                             HorizontalOptions="FillAndExpand" 
+                             BackgroundColor="{TemplateBinding GoToRegistrationButtonBackgroundColor}"
+                             Command="{TemplateBinding GoToRegistrationCommand}"
+                             IsEnabled="{TemplateBinding GoToRegistrationIsEnabled}" />
+
+                    <Button  Grid.Column="3" Text="Login"
+                              TextColor="DarkSlateGray"  TextTransform="Lowercase"  
+                             VerticalOptions="FillAndExpand" 
+                             HorizontalOptions="FillAndExpand" 
+                             BackgroundColor="{TemplateBinding GoToLoginButtonBackgroundColor}" Command="{TemplateBinding GoToLoginCommand}" 
+                             IsEnabled="{TemplateBinding GoToLoginIsEnabled}" />
+                </StackLayout>
+
+            </Grid>
+        </ControlTemplate>
+
+    </ContentPage.Resources>
+</ContentPage>

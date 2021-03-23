@@ -1,12 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<controls:PageLayoutTemplateControl xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PizzaIllico.Views.HomePage">
+             xmlns:controls="clr-namespace:PizzaIllico.Controls"
+             x:Class="PizzaIllico.Views.HomePage"
+             ControlTemplate="{StaticResource PageBlueLayoutTemplate}">
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}" >
+                <CollectionView ItemsSource="{Binding Pizzerias}">
+                    <CollectionView.ItemTemplate 
+                                Grid.Row="2" Grid.ColumnSpan="2"
+                                SelectionMode="Single"
+                                SelectedItem="{Binding SelectedPizzeria}"
+                                SelectionChangedCommand="{Binding GoToPizzeriaDetailCommand}">
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".4*" />
+                                    <ColumnDefinition Width=".3*" />
+                                </Grid.ColumnDefinitions>
+
+
+                                <Label Text="{Binding Name}" TextColor="Black" FontSize="16" Grid.Row="0" Grid.Column="0"
+                                               VerticalOptions="Center"
+                                                HorizontalOptions="FillAndExpand"/>
+
+                                <Label Text="{Binding Address}" 
+                                           TextColor="#555555"
+                                           MaxLines="2"
+                                           LineBreakMode="TailTruncation"
+                                           FontSize="12" Grid.Row="1" Grid.Column="0"/>
+
+                                <Label Grid.Row="0"
+                                            Grid.Column="1"
+                                               HorizontalTextAlignment="End"
+                                            VerticalOptions="Center"
+                                            Text="{Binding Minutes_per_kilometer } " TextColor="Black" FontSize="12"/>
+                            </Grid>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+
+            <StackLayout x:Name="waitLayout"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center">
+                <ActivityIndicator IsRunning="{Binding IsRunning}"/>
+
+            </StackLayout>
+
+
+        </Grid>
     </ContentPage.Content>
-</ContentPage>
+    </controls:PageLayoutTemplateControl>

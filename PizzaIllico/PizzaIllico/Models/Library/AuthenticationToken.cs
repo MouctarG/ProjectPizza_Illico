@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PizzaIllico.Models
+﻿
+namespace PizzaIllico.Models.Library
 {
-    class UserAuthentication
+    class AuthenticationToken
     {
         private string access_token;
         private string refresh_token;
@@ -30,6 +27,15 @@ namespace PizzaIllico.Models
         {
             get => expires_in; 
             set => expires_in = value; 
+        }
+
+        public AuthenticationToken() { }
+        public AuthenticationToken(AuthenticationToken auth)
+        {
+            token_type = auth.token_type;
+            expires_in = auth.expires_in;
+            access_token = auth.access_token;
+            refresh_token = auth.refresh_token;
         }
     }
 }

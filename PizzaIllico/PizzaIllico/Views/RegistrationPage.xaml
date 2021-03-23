@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PizzaIllico.Views.RegistrationPage">
+<controls:PageLayoutTemplateControl xmlns="http://xamarin.com/schemas/2014/forms"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                           xmlns:controls="clr-namespace:PizzaIllico.Controls"
+                           x:Class="PizzaIllico.Views.RegistrationPage"
+                           ControlTemplate="{StaticResource PageBlueLayoutTemplate}">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -50,4 +52,5 @@
 
         </ScrollView>
     </ContentPage.Content>
-</ContentPage>
+   
+    </controls:PageLayoutTemplateControl>

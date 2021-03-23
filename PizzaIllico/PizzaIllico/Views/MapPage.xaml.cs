@@ -7,14 +7,16 @@ using PizzaIllico.ViewModels;
 namespace PizzaIllico.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PizzeriaPage : PageLayoutTemplateControl
+    public partial class MapPage : PageLayoutTemplateControl
     {
 
-        public PizzeriaPage(): base(PizzaIllico.Resources.Config.EnumPages.PIZZERIA)
+        public MapPage(): base(PizzaIllico.Resources.Config.EnumPages.MAP)
         {
 
             InitializeComponent();
-            BindingContext = new PizzeriaViewModel();  
+          
+            BindingContext = new MapViewModel();
+
         }
        
     }

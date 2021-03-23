@@ -1,15 +1,17 @@
-﻿using System;
+﻿using Storm.Mvvm;
+using Xamarin.Forms;
+
 using PizzaIllico.Services;
 using PizzaIllico.Views;
-using Storm.Mvvm;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using System;
+using PizzaIllico.Controls;
 
 namespace PizzaIllico
 {
     public partial class App : MvvmApplication
     {
-        public App() : base(() => new LoginPage(), RegisterServices)
+
+        public App() : base(() => new NavigationPage(new HomePage()), () => RegisterServices() )
         {
             InitializeComponent();
             
@@ -17,9 +19,10 @@ namespace PizzaIllico
 
         private static void RegisterServices()
         {
-            DependencyService.Register<ILoginService, LoginService>();
-
-
+            DependencyService.Register<IAuthenticationService, AuthenticationService>();
+            DependencyService.Register<IAccountService, AccountService>();
+            DependencyService.Register<IPizzeriaService, PizzeriaService>();
         }
+
     }
 }

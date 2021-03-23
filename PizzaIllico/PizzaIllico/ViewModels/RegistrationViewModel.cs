@@ -1,10 +1,11 @@
-﻿using PizzaIllico.Models;
-using PizzaIllico.Resources.Config;
-using PizzaIllico.Services;
-using Storm.Mvvm;
+﻿using Storm.Mvvm;
 using Storm.Mvvm.Navigation;
 using System.Collections.Generic;
 using Xamarin.Forms;
+
+using PizzaIllico.Models.Account;
+using PizzaIllico.Resources.Config;
+using PizzaIllico.Services;
 
 namespace PizzaIllico.ViewModels
 {
@@ -19,7 +20,7 @@ namespace PizzaIllico.ViewModels
         private string phone_number;
         private string registrationErrorMessage;
 
-        ILoginService _loginService = DependencyService.Get<ILoginService>();
+        IAccountService _loginService = DependencyService.Get<IAccountService>();
 
         public RegistrationViewModel()
         {
@@ -32,12 +33,12 @@ namespace PizzaIllico.ViewModels
         {
             // string email, string first_name, string last_name, string phone_number, string password
 
-            RequestResult registration_result = await _loginService.Register(new User(Email, First_name, Last_name, Phone_number, Password));
+            AccountRegistrationResponse registration_result = await _loginService.Register(new AccountRegistrationRequest(Email, First_name, Last_name, Phone_number, Password));
 
             IsRegistered = registration_result.Is_success;
 
             if (IsRegistered) RegistrationErrorMessage = "";
-            else RegistrationErrorMessage = "[Error] " + Config.ToString(registration_result.Error_code);  // TODO: utiliser une resource statique
+            else RegistrationErrorMessage = "[Error] " + registration_result.Error_message;  // TODO: utiliser une resource statique
 
             // TODO: Navigate to the restaurant list
 
