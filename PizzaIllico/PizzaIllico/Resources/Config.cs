@@ -31,12 +31,21 @@ namespace PizzaIllico.Resources.Config
 
         public static string KEY_EMAIL = "email";
         public static string KEY_PASSWORD = "password";
+        public static string KEY_PIZZERIA_ID = "pizzeriaID";
 
         public static string APP_CACHE_ID = "Pizzaillico";
         public static string APP_CACHE_ENCRYPTION_KEY = "prs2kaIuv";
         public static string APP_CACHE_TOKEN_KEY = "kre3Zrft";
         public static string APP_CACHE_BASE_PATH = FileSystem.AppDataDirectory;
 
+        public static string Pizzeria_getURI(string pizzeria_id)
+        {
+            return URL_SHOPS + "/" + pizzeria_id + "/" + "pizzas";
+        }
+        public static string PizzeriaPizzaImage_getURI(string pizzeria_id, string pizza_id)
+        {
+            return Pizzeria_getURI(pizzeria_id) + "/" + pizza_id + "/image";
+        }
         public static string ToString(ErrorCode code)
         {
             switch (code)

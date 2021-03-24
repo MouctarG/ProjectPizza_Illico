@@ -3,13 +3,8 @@ using System.Collections.Generic;
 
 namespace PizzaIllico.Models.Pizzeria
 {
-    class PizzeriaGetAllPizzasResponse: Library.Response, Library.IGetAllResponse<Library.Pizza>
+    class PizzeriaGetAllPizzasResponse: Library.Response
     {
         public ICollection<Library.Pizza> Data { get; set; }
-
-        public List<Pizza> getData()
-        {
-            return (List<Pizza>)Data;
-        }
     }
 }

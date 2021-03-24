@@ -11,7 +11,12 @@ namespace PizzaIllico.Services
     interface IPizzeriaService
     {
         void RequestPizzeriaList(Action<PizzeriaGetAllShopsResponse> _action);
-        void RequestRestaurantPizzaList(Action<ObservableCollection<Pizza>> _action, int restaurant_id);
+        // void RequestRestaurantPizzaList(Action<ObservableCollection<Pizza>> _action, int restaurant_id);
+        void RequestRestaurantPizzaList(Action<ICollection<Pizza>> _action, string restaurant_id);
+
         void sortPizzerias(List<Pizzeria>  pizzerias, ObservableCollection<Pizzeria> _pizzerias);
+
+        void sortPizzas(string pizzeria_id, List<Pizza> pizzas, ObservableCollection<Pizza> _pizzas);
+
     }
 }

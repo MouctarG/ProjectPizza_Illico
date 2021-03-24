@@ -6,5 +6,7 @@ namespace PizzaIllico.Models.Library
         public bool Is_success { get; set; }
         public string Error_code { get; set; }
         public string Error_message { get; set; }
+
+        public long Http_code { get; set; }
     }
 }

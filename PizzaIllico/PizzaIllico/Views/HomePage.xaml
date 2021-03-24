@@ -14,13 +14,12 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}" >
-                <CollectionView ItemsSource="{Binding Pizzerias}">
-                    <CollectionView.ItemTemplate 
+            <RefreshView IsRefreshing="{Binding IsRefreshing, Mode=OneWay}" Command="{Binding IsRefreshingCommand}" RefreshColor="DarkOrange">
+                <CollectionView ItemsSource="{Binding Pizzerias}" SelectionChangedCommand="{Binding GoToPizzeriaDetailCommand}"
                                 Grid.Row="2" Grid.ColumnSpan="2"
                                 SelectionMode="Single"
-                                SelectedItem="{Binding SelectedPizzeria}"
-                                SelectionChangedCommand="{Binding GoToPizzeriaDetailCommand}">
+                                SelectedItem="{Binding SelectedPizzeria}">
+                    <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid Padding="10">
                                 <Grid.RowDefinitions>
@@ -55,12 +54,14 @@
                 </CollectionView>
             </RefreshView>
 
+            <!--
             <StackLayout x:Name="waitLayout"
                      VerticalOptions="Center"
-                     HorizontalOptions="Center">
-                <ActivityIndicator IsRunning="{Binding IsRunning}"/>
+                     HorizontalOptions="Center" IsVisible="{Binding IsRefreshing}">
+                <ActivityIndicator IsRunning="{Binding IsRunning, Mode=OneWay}"/>
 
             </StackLayout>
+            -->
 
 
         </Grid>

@@ -1,16 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <controls:PageLayoutTemplateControl xmlns="http://xamarin.com/schemas/2014/forms"
                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                           xmlns:controls="clr-namespace:PizzaIllico.Controls"
-                          x:Class="PizzaIllico.Views.MapPage"
+                           xmlns:controls="clr-namespace:PizzaIllico.Controls" xmlns:map="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+                                    x:Class="PizzaIllico.Views.MapPage"
                            ControlTemplate="{StaticResource PageBlueLayoutTemplate}">
 
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <map:Map MapType="Street" HasZoomEnabled="True" ItemsSource="{Binding Pizzerias}">
+                <map:Map.ItemTemplate>
+                    <DataTemplate>
+                        <map:Pin Position="{Binding Position2D }"
+                                 Address="{Binding Address}"
+                                 Label="{Binding Name}"/>
+                    </DataTemplate>
+                </map:Map.ItemTemplate>
+            </map:Map>
+        </Grid>
     </ContentPage.Content>
 
 </controls:PageLayoutTemplateControl>
