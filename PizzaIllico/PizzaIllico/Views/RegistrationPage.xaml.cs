@@ -9,10 +9,12 @@ namespace PizzaIllico.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegistrationPage : PageLayoutTemplateControl
     {
-        public RegistrationPage(): base(PizzaIllico.Resources.Config.EnumPages.REGISTRATION)
+        public RegistrationPage(): base()
         {
-           
+
+            SetTemplateDisabledButtonRegistration();
             InitializeComponent();
+
             BindingContext = new RegistrationViewModel();
         }
        

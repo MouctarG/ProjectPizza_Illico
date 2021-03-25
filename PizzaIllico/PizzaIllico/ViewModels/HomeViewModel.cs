@@ -12,8 +12,11 @@ using PizzaIllico.Resources.Config;
 
 namespace PizzaIllico.ViewModels
 {
-    class HomeViewModel : ViewModelBase
+    class HomeViewModel : PageLayoutViewModel
     {
+
+
+        // =====================================================================================================
         private bool _isRefreshing;
         private bool _isRunning;
         private Pizzeria _selectedPizerria;
@@ -31,6 +34,7 @@ namespace PizzaIllico.ViewModels
             }
 
         }
+        
 
         private IPizzeriaService _publicService = DependencyService.Get<IPizzeriaService>();
         private PizzeriaGetAllShopsResponse _pizzerias_response;
@@ -52,14 +56,12 @@ namespace PizzaIllico.ViewModels
         {
             if (_selectedPizerria != null)
             {
-
+                
                 var pizzeriaPage = new PizzeriaPage();
                 Dictionary<string, object> navigationParams = new Dictionary<string, object>()
                 {
                     {Config.KEY_PIZZERIA_ID, _selectedPizerria.Id }
                 };
-
-                
 
                 await NavigationService.PushAsync<PizzeriaPage>(navigationParams);
                
@@ -75,16 +77,23 @@ namespace PizzaIllico.ViewModels
             });
             IsRefreshing = false;
         }
-    public HomeViewModel()
+        public HomeViewModel()
         {
             _pizzerias = new ObservableCollection<Pizzeria>();
+
+           
+
+            FooterButtonHomeCommand = new Command(() => { });
+            FooterButtonLoginCommand = new Command(async () => await NavigationService.PushAsync<LoginPage>());
+            FooterButtonMapCommand = new Command(async () => await NavigationService.PushAsync<MapPage>());
+            FooterButtonRegistrationCommand = new Command(async ()  => await NavigationService.PushAsync<RegistrationPage>() );
 
 
             GoToPizzeriaDetailCommand = new Command(Go_toPizzeria);
             RefreshCommand = new Command(Do_refresh);
 
             Do_refresh(null);
-
         }
+
     }
 }

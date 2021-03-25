@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PizzaIllico.Controls.PageLayoutTemplateControl"
+             xmlns:vm="clr-namespace:PizzaIllico.ViewModels"
              Title="PizzaIllico" >
     <ContentPage.Resources>
         <Style TargetType="Entry">
@@ -37,35 +38,42 @@
 
                 <StackLayout Orientation="Horizontal" Grid.Row="1"  >
                     <Button  Grid.Column="0"  Text="Home"
-                             TextColor="DarkSlateGray" TextTransform="Lowercase" 
+                             TextTransform="Lowercase" 
                              VerticalOptions="FillAndExpand" 
                              HorizontalOptions="FillAndExpand" 
-                             BackgroundColor="{TemplateBinding GoHomeButtonBackgroundColor}"  
-                             Command="{TemplateBinding GoHomeCommand}" 
-                             IsEnabled="{TemplateBinding GoHomeIsEnabled}" />
+                             TextColor="{TemplateBinding FooterButtonHomeTextColor}" 
+                             IsEnabled="{TemplateBinding  FooterButtonHomeIsEnabled}" 
+                             BackgroundColor="{TemplateBinding  FooterButtonHomeBackgroundColor}"
+                             Command="{Binding  Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=FooterButtonHomeCommand}" />
 
                     <Button   Grid.Column="1" Text="Map" 
-                              TextColor="DarkSlateGray"   TextTransform="Lowercase" 
+                             TextTransform="Lowercase" 
                              VerticalOptions="FillAndExpand" 
                              HorizontalOptions="FillAndExpand" 
-                               BackgroundColor="{TemplateBinding GoToMapButtonBackgroundColor}" 
-                               Command="{TemplateBinding GoToMapCommand}" 
-                              IsEnabled="{TemplateBinding GoToMapIsEnabled}" />
+                             TextColor="{TemplateBinding FooterButtonMapTextColor}" 
+                             BackgroundColor="{TemplateBinding FooterButtonMapBackgroundColor}"
+                             IsEnabled="{TemplateBinding FooterButtonMapIsEnabled}"
+                             Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}},Path=FooterButtonMapCommand}" />
 
                     <Button  Grid.Column="2" Text="Registration" 
-                             TextColor="DarkSlateGray"  TextTransform="Lowercase" 
+                             TextTransform="Lowercase" 
                              VerticalOptions="FillAndExpand" 
                              HorizontalOptions="FillAndExpand" 
-                             BackgroundColor="{TemplateBinding GoToRegistrationButtonBackgroundColor}"
-                             Command="{TemplateBinding GoToRegistrationCommand}"
-                             IsEnabled="{TemplateBinding GoToRegistrationIsEnabled}" />
-
+                             TextColor="{TemplateBinding FooterButtonRegistrationTextColor}" 
+                             BackgroundColor="{TemplateBinding FooterButtonRegistrationBackgroundColor}"
+                             IsEnabled="{TemplateBinding FooterButtonRegistrationIsEnabled}" 
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=FooterButtonRegistrationCommand}" />
+                             
+                             
                     <Button  Grid.Column="3" Text="Login"
-                              TextColor="DarkSlateGray"  TextTransform="Lowercase"  
+                              TextTransform="Lowercase"  
                              VerticalOptions="FillAndExpand" 
                              HorizontalOptions="FillAndExpand" 
-                             BackgroundColor="{TemplateBinding GoToLoginButtonBackgroundColor}" Command="{TemplateBinding GoToLoginCommand}" 
-                             IsEnabled="{TemplateBinding GoToLoginIsEnabled}" />
+                             TextColor="{TemplateBinding  FooterButtonLoginTextColor}" 
+                             BackgroundColor="{TemplateBinding  FooterButtonLoginBackgroundColor}"
+                             IsEnabled="{TemplateBinding  FooterButtonLoginIsEnabled}" 
+                             Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=FooterButtonLoginCommand}" />
+
                 </StackLayout>
 
             </Grid>

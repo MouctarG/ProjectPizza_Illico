@@ -9,155 +9,151 @@ namespace PizzaIllico.Controls
     public partial class PageLayoutTemplateControl : ContentPage
     {
 
-        private static Color disabledButtonBackgroundColor = Color.DeepSkyBlue;
-        private static Color enabledButtonBackgroundColor = Color.Azure;
+        protected static Color disabledButtonBackgroundColor = Color.DeepSkyBlue;
+        protected static Color enabledButtonBackgroundColor = Color.Azure;
 
-        private Command _goToLoginCommand;
-        private Command _goToMapCommand;
-        private Command _goHomeCommand;
-        private Command _goToRegistrationCommand;
-
-        private bool _goHomeIsEnabled = true;
-        private bool _goToRegistrationIsEnabled = true;
-        private bool _goToMapIsEnabled = true;
-        private bool _goToLoginIsEnabled = true;
-
-        private Color _goHomeButtonBackgroundColor = enabledButtonBackgroundColor;
-        private Color _goToLoginButtonBackgroundColor = enabledButtonBackgroundColor;
-        private Color _goToRegistrationButtonBackgroundColor = enabledButtonBackgroundColor;
-        private Color _goToMapButtonBackgroundColor = enabledButtonBackgroundColor;
+        protected static Color enabledButtonTextColor = Color.DarkSlateGray;
+        protected static Color disabledButtonTextColor = Color.DarkSlateGray;
 
 
-        public bool GoHomeIsEnabled
+        public Color FooterEnabledButtonTextColor
         {
-
-            get => _goHomeIsEnabled;
-            set => _goHomeIsEnabled = value;
-        }
-        public bool GoToRegistrationIsEnabled
-        {
-
-            get => _goToRegistrationIsEnabled;
-            set => _goToRegistrationIsEnabled = value;
-        }
-        public bool GoToMapIsEnabled
-        {
-
-            get => _goToMapIsEnabled;
-            set => _goToMapIsEnabled = value;
-        }
-        public bool GoToLoginIsEnabled
-        {
-
-            get => _goToLoginIsEnabled;
-            set => _goToLoginIsEnabled = value;
+            get => enabledButtonTextColor;
+            set => enabledButtonTextColor = value;
         }
 
+        public Color FooterDisabledButtonTextColor
+        {
+            get => disabledButtonTextColor;
+            set => disabledButtonTextColor = value;
+        }
+        public Color FooterEnabledButtonBackgroundColor
+        {
+            get => enabledButtonBackgroundColor;
+            set => enabledButtonBackgroundColor = value;
+        }
+        public Color FooterDisabledButtonBackgroundColor
+        {
+            get => disabledButtonBackgroundColor;
+            set => disabledButtonBackgroundColor = value;
+        }
+       
 
-        public Command GoToLoginCommand
+        public bool FooterButtonHomeIsEnabled { get; set; }
+        public bool FooterButtonLoginIsEnabled { get; set; }
+        public bool FooterButtonRegistrationIsEnabled { get; set; }
+        public bool FooterButtonMapIsEnabled { get; set; }
+
+        public Color FooterButtonHomeTextColor { get; set; }
+        public Color FooterButtonLoginTextColor { get; set; }
+        public Color FooterButtonRegistrationTextColor { get; set; }
+        public Color FooterButtonMapTextColor { get; set; }
+
+        public Color FooterButtonHomeBackgroundColor { get; set; }
+        public Color FooterButtonLoginBackgroundColor { get; set; }
+        public Color FooterButtonRegistrationBackgroundColor { get; set; }
+        public Color FooterButtonMapBackgroundColor { get; set; }
+
+        // =======================================================================================================================================
+        protected void SetTemplateDisabledButtonHome()
         {
-            get => _goToLoginCommand; 
-            set => _goToLoginCommand = value;
-        }
-        public Command GoToMapCommand
-        {
-            get => _goToMapCommand; 
-            set => _goToMapCommand = value;
-        }
-        public Command GoHomeCommand
-        {
-            get => _goHomeCommand; 
-            set => _goHomeCommand = value;
-        }
-        public Command GoToRegistrationCommand
-        {
-            get => _goToRegistrationCommand; 
-            set => _goToRegistrationCommand = value;
+            FooterButtonHomeIsEnabled = false;
+            FooterButtonHomeTextColor = disabledButtonTextColor;
+            FooterButtonHomeBackgroundColor = disabledButtonBackgroundColor;
+
+            FooterButtonLoginIsEnabled = true;
+            FooterButtonLoginTextColor = enabledButtonTextColor;
+            FooterButtonLoginBackgroundColor = enabledButtonBackgroundColor;
+
+            FooterButtonMapIsEnabled = true;
+            FooterButtonMapTextColor = enabledButtonTextColor;
+            FooterButtonMapBackgroundColor = enabledButtonBackgroundColor;
+
+            FooterButtonRegistrationIsEnabled = true;
+            FooterButtonRegistrationTextColor = enabledButtonTextColor;
+            FooterButtonRegistrationBackgroundColor = enabledButtonBackgroundColor;
         }
 
-        public Color GoHomeButtonBackgroundColor
+        protected void SetTemplateDisabledButtonLogin()
         {
-            get => _goHomeButtonBackgroundColor;
-            set => _goHomeButtonBackgroundColor = value;
-        }
-      
-        public Color GoToLoginButtonBackgroundColor
-        {
-            get => _goToLoginButtonBackgroundColor; 
-            set => _goToLoginButtonBackgroundColor = value;
-        }
-     
-        public Color GoToRegistrationButtonBackgroundColor
-        {
-            get => _goToRegistrationButtonBackgroundColor; 
-            set => _goToRegistrationButtonBackgroundColor = value;
-        }
-        public Color GoToMapButtonBackgroundColor
-        {
-            get => _goToMapButtonBackgroundColor; 
-            set => _goToMapButtonBackgroundColor = value;
+            FooterButtonHomeIsEnabled = true;
+            FooterButtonHomeTextColor = enabledButtonTextColor;
+            FooterButtonHomeBackgroundColor = enabledButtonBackgroundColor;
+
+            FooterButtonLoginIsEnabled = false;
+            FooterButtonLoginTextColor = disabledButtonTextColor;
+            FooterButtonLoginBackgroundColor = disabledButtonBackgroundColor;
+
+            FooterButtonMapIsEnabled = true;
+            FooterButtonMapTextColor = enabledButtonTextColor;
+            FooterButtonMapBackgroundColor = enabledButtonBackgroundColor;
+
+            FooterButtonRegistrationIsEnabled = true;
+            FooterButtonRegistrationTextColor = enabledButtonTextColor;
+            FooterButtonRegistrationBackgroundColor = enabledButtonBackgroundColor;
         }
 
-        public PageLayoutTemplateControl(EnumPages page)
+        protected void SetTemplateDisabledButtonRegistration()
         {
-            if (page == EnumPages.HOME)
-            {
-                GoHomeIsEnabled = false;
-                GoHomeButtonBackgroundColor = disabledButtonBackgroundColor;
-            }
-            else if (page == EnumPages.LOGIN)
-            {
-                GoToLoginIsEnabled = false;
-                GoToLoginButtonBackgroundColor = disabledButtonBackgroundColor;
-            }
-            else if (page == EnumPages.MAP)
-            {
-                GoToMapIsEnabled = false;
-                GoToMapButtonBackgroundColor = disabledButtonBackgroundColor;
-            }
-            else if (page == EnumPages.REGISTRATION)
-            {
-                GoToRegistrationIsEnabled = false;
-                GoToRegistrationButtonBackgroundColor = disabledButtonBackgroundColor;
-            }
+            FooterButtonHomeIsEnabled = true;
+            FooterButtonHomeTextColor = enabledButtonTextColor;
+            FooterButtonHomeBackgroundColor = enabledButtonBackgroundColor;
 
+            FooterButtonLoginIsEnabled = true;
+            FooterButtonLoginTextColor = enabledButtonTextColor;
+            FooterButtonLoginBackgroundColor = enabledButtonBackgroundColor;
 
-            _goHomeCommand = new Command(() => { if (_goHomeIsEnabled) Go_home(); });
-            _goToMapCommand = new Command(() => { if (_goToMapIsEnabled) Go_ToMap(); });
-            _goToRegistrationCommand = new Command(() => { if (_goToRegistrationIsEnabled) Go_ToRegistration(); });
-            _goToLoginCommand = new Command(() => { if (_goToLoginIsEnabled) Go_ToLogin(); });
+            FooterButtonMapIsEnabled = true;
+            FooterButtonMapTextColor = enabledButtonTextColor;
+            FooterButtonMapBackgroundColor = enabledButtonBackgroundColor;
 
+            FooterButtonRegistrationIsEnabled = false;
+            FooterButtonRegistrationTextColor = disabledButtonTextColor;
+            FooterButtonRegistrationBackgroundColor = disabledButtonBackgroundColor;
+        }
+
+        protected void SetTemplateTemplateDefault()
+        {
+            FooterButtonHomeIsEnabled = true;
+            FooterButtonHomeTextColor = enabledButtonTextColor;
+            FooterButtonHomeBackgroundColor = enabledButtonBackgroundColor;
+
+            FooterButtonLoginIsEnabled = true;
+            FooterButtonLoginTextColor = enabledButtonTextColor;
+            FooterButtonLoginBackgroundColor = enabledButtonBackgroundColor;
+
+            FooterButtonMapIsEnabled = true;
+            FooterButtonMapTextColor = enabledButtonTextColor;
+            FooterButtonMapBackgroundColor = enabledButtonBackgroundColor;
+
+            FooterButtonRegistrationIsEnabled = true;
+            FooterButtonRegistrationTextColor = enabledButtonTextColor;
+            FooterButtonRegistrationBackgroundColor = enabledButtonBackgroundColor;
+
+        }
+        protected void SetTemplateDisabledButtonMap()
+        {
+            FooterButtonHomeIsEnabled = true;
+            FooterButtonHomeTextColor = enabledButtonTextColor;
+            FooterButtonHomeBackgroundColor = enabledButtonBackgroundColor;
+
+            FooterButtonLoginIsEnabled = true;
+            FooterButtonLoginTextColor = enabledButtonTextColor;
+            FooterButtonLoginBackgroundColor = enabledButtonBackgroundColor;
+
+            FooterButtonMapIsEnabled = false;
+            FooterButtonMapTextColor = disabledButtonTextColor;
+            FooterButtonMapBackgroundColor = disabledButtonBackgroundColor;
+
+            FooterButtonRegistrationIsEnabled = true;
+            FooterButtonRegistrationTextColor = enabledButtonTextColor;
+            FooterButtonRegistrationBackgroundColor = enabledButtonBackgroundColor;
+        }
+         
+        public PageLayoutTemplateControl()
+        {
             InitializeComponent();
         }
-
-        private async void Go_home()
-        {
-
-            var loginPage = new NavigationPage(new HomePage());
-
-            await Application.Current.MainPage.Navigation.PushAsync(loginPage);
-        }
-        private async void Go_ToLogin()
-        {
-
-            var loginPage = new NavigationPage(new LoginPage());
-
-            await Application.Current.MainPage.Navigation.PushAsync(loginPage);
-        }
-        private async void Go_ToMap()
-        {
-
-            var mapPage = new NavigationPage(new MapPage());
-
-            await Application.Current.MainPage.Navigation.PushAsync(mapPage);
-        }
-        private async void Go_ToRegistration()
-        {
-
-            var registrationPage = new NavigationPage(new RegistrationPage());
-
-            await Application.Current.MainPage.Navigation.PushAsync(registrationPage);
-        }
-
+        
     }
 }

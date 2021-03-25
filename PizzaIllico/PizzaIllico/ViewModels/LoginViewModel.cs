@@ -11,7 +11,7 @@ using System;
 
 namespace PizzaIllico.ViewModels
 {
-    public class LoginViewModel : ViewModelBase
+    class LoginViewModel : PageLayoutViewModel
     {
 
         private bool _isLoggedIn = false;
@@ -30,6 +30,8 @@ namespace PizzaIllico.ViewModels
             LoginCommand = new Command(Do_login);
             GoToRegistrationCommand = new Command(Do_register);
 
+            // FooterButtonLoginIsEnabled = false;
+
             _cachedOauth = _loginService.GetToken<AuthenticationToken>();
             if (_cachedOauth != null)
             {
@@ -42,12 +44,17 @@ namespace PizzaIllico.ViewModels
             }
             else IsLoggedIn = false;
 
+            FooterButtonHomeCommand = new Command(async () => await NavigationService.PushAsync<HomePage>());
+            FooterButtonLoginCommand = new Command(() => { });
+            FooterButtonMapCommand = new Command(async () => await NavigationService.PushAsync<MapPage>());
+            FooterButtonRegistrationCommand = GoToRegistrationCommand;
+
         }
 
         private async void Do_register(object obj)
         {
             
-            var registrationPage = new RegistrationPage();
+            // var registrationPage = new RegistrationPage();
             Dictionary<string, object> navigationParams = new Dictionary<string, object>()
             {
                 {Config.KEY_EMAIL, UserID },

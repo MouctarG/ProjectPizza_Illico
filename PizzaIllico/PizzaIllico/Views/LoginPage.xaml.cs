@@ -10,11 +10,12 @@ namespace PizzaIllico.Views
 
     public partial class LoginPage : PageLayoutTemplateControl
     {
-        public LoginPage(): base(PizzaIllico.Resources.Config.EnumPages.LOGIN)
+        public LoginPage(): base()
         {
-           
+
+            SetTemplateDisabledButtonLogin();
             InitializeComponent();
-          
+
             BindingContext = new LoginViewModel();
 
         }

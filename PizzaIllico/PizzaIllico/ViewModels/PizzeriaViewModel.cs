@@ -2,6 +2,7 @@
 using PizzaIllico.Models.Pizzeria;
 using PizzaIllico.Resources.Config;
 using PizzaIllico.Services;
+using PizzaIllico.Views;
 using Storm.Mvvm;
 using Storm.Mvvm.Navigation;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using Xamarin.Forms;
 
 namespace PizzaIllico.ViewModels
 {
-    class PizzeriaViewModel : ViewModelBase
+    class PizzeriaViewModel : PageLayoutViewModel
     {
         private string _restaurant_id;
 
@@ -23,11 +24,16 @@ namespace PizzaIllico.ViewModels
 
         private ObservableCollection<Pizza> _pizzas = new ObservableCollection<Pizza>();
 
+        public Color PizzaBackgroundColor
+        {
+            get; set;
+        }
         private async void Go_toPizzaDetail(object obj)
         {
             if (_selectedPizza != null)
             {
-               // TODO
+                PizzaBackgroundColor = Color.AliceBlue;
+                // TODO
 
             }
         }
@@ -46,8 +52,14 @@ namespace PizzaIllico.ViewModels
 
         public PizzeriaViewModel()
         {
+            PizzaBackgroundColor = Color.Olive;
             GoToPizzaDetailCommand = new Command(Go_toPizzaDetail);
             RefreshCommand = new Command(Do_refresh);
+
+            FooterButtonHomeCommand = new Command(async () => await NavigationService.PushAsync<HomePage>());
+            FooterButtonLoginCommand = new Command(async () => await NavigationService.PushAsync<LoginPage>());
+            FooterButtonMapCommand = new Command(async () => await NavigationService.PushAsync<MapPage>());
+            FooterButtonRegistrationCommand = new Command(async () => await NavigationService.PushAsync<RegistrationPage>());
         }
 
         [NavigationParameter]

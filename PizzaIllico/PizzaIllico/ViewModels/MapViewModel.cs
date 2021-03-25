@@ -1,5 +1,6 @@
 ﻿using PizzaIllico.Models.Library;
 using PizzaIllico.Services;
+using PizzaIllico.Views;
 using Storm.Mvvm;
 using System;
 using System.Collections.ObjectModel;
@@ -9,7 +10,7 @@ using Xamarin.Forms.Maps;
 namespace PizzaIllico.ViewModels
 {
 
-    class MapViewModel : ViewModelBase
+    class MapViewModel : PageLayoutViewModel
     {
         private static IPizzeriaService _pizzeriaService = DependencyService.Get<IPizzeriaService>();
         private Collection<Pizzeria2D> _pizzerias = new Collection<Pizzeria2D>();
@@ -22,6 +23,14 @@ namespace PizzaIllico.ViewModels
 
         public MapViewModel()
         {
+
+            // FooterButtonMapIsEnabled = false;
+
+            FooterButtonHomeCommand = new Command(async () => await NavigationService.PushAsync<HomePage>());
+            FooterButtonLoginCommand = new Command(async () => await NavigationService.PushAsync<LoginPage>());
+            FooterButtonMapCommand = new Command(() => { });
+            FooterButtonRegistrationCommand = new Command(async () => await NavigationService.PushAsync<RegistrationPage>());
+
             _pizzeriaService.RequestPizzeriaList((pizzerias) =>
             {
 

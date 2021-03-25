@@ -10,11 +10,11 @@ namespace PizzaIllico.Views
     public partial class MapPage : PageLayoutTemplateControl
     {
 
-        public MapPage(): base(PizzaIllico.Resources.Config.EnumPages.MAP)
+        public MapPage(): base()
         {
-
+            SetTemplateDisabledButtonMap();
             InitializeComponent();
-          
+
             BindingContext = new MapViewModel();
 
         }

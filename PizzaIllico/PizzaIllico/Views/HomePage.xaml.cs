@@ -10,11 +10,15 @@ namespace PizzaIllico.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : PageLayoutTemplateControl
     {
-        public HomePage(): base(EnumPages.HOME)
+        
+        public HomePage(): base()
         {
+
+            SetTemplateDisabledButtonHome();
             InitializeComponent();
 
             BindingContext = new HomeViewModel();
+            
 
         }
     }

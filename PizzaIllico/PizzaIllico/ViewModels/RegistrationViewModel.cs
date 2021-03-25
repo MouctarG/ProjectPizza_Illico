@@ -6,10 +6,11 @@ using Xamarin.Forms;
 using PizzaIllico.Models.Account;
 using PizzaIllico.Resources.Config;
 using PizzaIllico.Services;
+using PizzaIllico.Views;
 
 namespace PizzaIllico.ViewModels
 {
-    class RegistrationViewModel : ViewModelBase
+    class RegistrationViewModel : PageLayoutViewModel
     {
         private bool _isRegistered = false;
 
@@ -24,6 +25,13 @@ namespace PizzaIllico.ViewModels
 
         public RegistrationViewModel()
         {
+
+            // FooterButtonRegistrationIsEnabled = false;
+
+            FooterButtonHomeCommand = new Command(async () => await NavigationService.PushAsync<HomePage>());
+            FooterButtonLoginCommand = new Command(async () => await NavigationService.PushAsync<LoginPage>());
+            FooterButtonMapCommand = new Command(async () => await NavigationService.PushAsync<MapPage>());
+            FooterButtonRegistrationCommand = new Command(() => { });
 
             RegisterCommand = new Command(Do_register);
 

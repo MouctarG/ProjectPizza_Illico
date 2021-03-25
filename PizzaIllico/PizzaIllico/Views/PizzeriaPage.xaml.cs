@@ -10,10 +10,12 @@ namespace PizzaIllico.Views
     public partial class PizzeriaPage : PageLayoutTemplateControl
     {
 
-        public PizzeriaPage(): base(PizzaIllico.Resources.Config.EnumPages.PIZZERIA)
+        public PizzeriaPage(): base()
         {
 
+            SetTemplateTemplateDefault();
             InitializeComponent();
+
             BindingContext = new PizzeriaViewModel();  
         }
        

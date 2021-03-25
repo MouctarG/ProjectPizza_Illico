@@ -7,26 +7,26 @@
     <ContentPage.Content>
         <Grid>
             <RefreshView IsRefreshing="{Binding IsRefreshing, Mode=OneWay}" Command="{Binding IsRefreshingCommand}" RefreshColor="DarkOrange">
-                <CollectionView ItemsSource="{Binding Pizzas}" SelectionMode="Single"
+                <CollectionView ItemsSource="{Binding Pizzas}" SelectionMode="Multiple"
                                 SelectedItem="{Binding SelectedPizza}"
-                                SelectionChangedCommand="{Binding GoToPizzaDetailCommand}">
+                                SelectionChangedCommand="{Binding GoToPizzaDetailCommand}"
+                                Margin="20">
                     <CollectionView.ItemTemplate >
                         <DataTemplate>
-                            <Frame BackgroundColor="AliceBlue">
-                            <Grid Padding="10" BackgroundColor="Ivory">
+                            <Grid >
 
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="90" />
                                     <RowDefinition Height="4" />
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="75" />
-                                        <ColumnDefinition Width="200" />
-                                        <ColumnDefinition Width="50" />
-                                    </Grid.ColumnDefinitions>
-                                
-                                    <Frame IsClippedToBounds="True"
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="75" />
+                                    <ColumnDefinition Width="200" />
+                                    <ColumnDefinition Width="50" />
+                                </Grid.ColumnDefinitions>
+
+                                <Frame IsClippedToBounds="True"
                                      BorderColor="Blue"
                                     BackgroundColor="Aqua"
                                     CornerRadius="38"
@@ -41,7 +41,7 @@
                                         WidthRequest="100"
                                          HeightRequest="100"
                                          Aspect="AspectFill"
-                                        BackgroundColor="#F0F0F0"/>
+                                        BackgroundColor="AliceBlue"/>
                                 </Frame>
 
                                 <StackLayout
@@ -49,10 +49,11 @@
                                         VerticalOptions="Center" Padding="10"
                                         HorizontalOptions="FillAndExpand"
                                         Orientation="Vertical"
+                                        BackgroundColor="AliceBlue"
                                         >
                                     <Label Text="{Binding Name}" TextColor="Black" FontSize="13"/>
                                     <Label Text="{Binding Description}" 
-                                               TextColor="#555555"
+                                               TextColor="DarkSlateGray"
                                                MaxLines="3"
                                                LineBreakMode="TailTruncation"
                                                FontSize="12"/>
@@ -62,10 +63,9 @@
                                 <Label Grid.Row="0" Grid.Column="2"
                                        VerticalOptions="Center" HorizontalOptions="End"
                                 Text="{Binding Price}" TextColor="Black" FontSize="12"/>
-                                
+
 
                             </Grid>
-                            </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
@@ -73,5 +73,4 @@
 
         </Grid>
     </ContentPage.Content>
-
 </controls:PageLayoutTemplateControl>

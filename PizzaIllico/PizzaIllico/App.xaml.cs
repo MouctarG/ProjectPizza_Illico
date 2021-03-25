@@ -11,7 +11,7 @@ namespace PizzaIllico
     public partial class App : MvvmApplication
     {
 
-        public App() : base(() => new NavigationPage(new HomePage()), () => RegisterServices() )
+        public App() : base(() => new HomePage(), () => RegisterServices() )
         {
             InitializeComponent();
             
