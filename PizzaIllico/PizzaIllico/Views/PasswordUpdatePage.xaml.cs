@@ -1,15 +1,21 @@
-﻿using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-using PizzaIllico.Controls;
+﻿using PizzaIllico.Controls;
 using PizzaIllico.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace PizzaIllico.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PizzeriaPage : PageLayoutTemplateControl
+    public partial class PasswordUpdatePage : PageLayoutTemplateControl
     {
-        private void SetPizzeriaPageLayout()
+
+        protected void SetPasswordUpdatePageLayout()
         {
             FooterButtonHomeIsEnabled = true;
             FooterButtonHomeTextColor = enabledButtonTextColor;
@@ -27,17 +33,14 @@ namespace PizzaIllico.Views
             FooterButtonCartTextColor = enabledButtonTextColor;
             FooterButtonCartBackgroundColor = enabledButtonBackgroundColor;
 
-            PageTitle = "Pizza selection";
-
+            PageTitle = "Password Update";
         }
-        public PizzeriaPage(): base()
+        public PasswordUpdatePage()
         {
-
-            SetPizzeriaPageLayout();
+            SetPasswordUpdatePageLayout();
             InitializeComponent();
 
-            BindingContext = new PizzeriaViewModel();  
+            BindingContext = new PasswordUpdateViewModel();
         }
-       
     }
 }

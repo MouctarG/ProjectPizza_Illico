@@ -40,115 +40,31 @@ namespace PizzaIllico.Controls
        
 
         public bool FooterButtonHomeIsEnabled { get; set; }
-        public bool FooterButtonLoginIsEnabled { get; set; }
-        public bool FooterButtonRegistrationIsEnabled { get; set; }
+        public bool FooterButtonAccountIsEnabled { get; set; }
+        public bool FooterButtonCartIsEnabled { get; set; }
         public bool FooterButtonMapIsEnabled { get; set; }
 
+        public string PageTitle { get; set; }
+
         public Color FooterButtonHomeTextColor { get; set; }
-        public Color FooterButtonLoginTextColor { get; set; }
-        public Color FooterButtonRegistrationTextColor { get; set; }
+        public Color FooterButtonAccountTextColor { get; set; }
+        public Color FooterButtonCartTextColor { get; set; }
         public Color FooterButtonMapTextColor { get; set; }
 
         public Color FooterButtonHomeBackgroundColor { get; set; }
-        public Color FooterButtonLoginBackgroundColor { get; set; }
-        public Color FooterButtonRegistrationBackgroundColor { get; set; }
+        public Color FooterButtonAccountBackgroundColor { get; set; }
+        public Color FooterButtonCartBackgroundColor { get; set; }
         public Color FooterButtonMapBackgroundColor { get; set; }
 
         // =======================================================================================================================================
-        protected void SetTemplateDisabledButtonHome()
-        {
-            FooterButtonHomeIsEnabled = false;
-            FooterButtonHomeTextColor = disabledButtonTextColor;
-            FooterButtonHomeBackgroundColor = disabledButtonBackgroundColor;
+        
 
-            FooterButtonLoginIsEnabled = true;
-            FooterButtonLoginTextColor = enabledButtonTextColor;
-            FooterButtonLoginBackgroundColor = enabledButtonBackgroundColor;
+        
 
-            FooterButtonMapIsEnabled = true;
-            FooterButtonMapTextColor = enabledButtonTextColor;
-            FooterButtonMapBackgroundColor = enabledButtonBackgroundColor;
+        
 
-            FooterButtonRegistrationIsEnabled = true;
-            FooterButtonRegistrationTextColor = enabledButtonTextColor;
-            FooterButtonRegistrationBackgroundColor = enabledButtonBackgroundColor;
-        }
-
-        protected void SetTemplateDisabledButtonLogin()
-        {
-            FooterButtonHomeIsEnabled = true;
-            FooterButtonHomeTextColor = enabledButtonTextColor;
-            FooterButtonHomeBackgroundColor = enabledButtonBackgroundColor;
-
-            FooterButtonLoginIsEnabled = false;
-            FooterButtonLoginTextColor = disabledButtonTextColor;
-            FooterButtonLoginBackgroundColor = disabledButtonBackgroundColor;
-
-            FooterButtonMapIsEnabled = true;
-            FooterButtonMapTextColor = enabledButtonTextColor;
-            FooterButtonMapBackgroundColor = enabledButtonBackgroundColor;
-
-            FooterButtonRegistrationIsEnabled = true;
-            FooterButtonRegistrationTextColor = enabledButtonTextColor;
-            FooterButtonRegistrationBackgroundColor = enabledButtonBackgroundColor;
-        }
-
-        protected void SetTemplateDisabledButtonRegistration()
-        {
-            FooterButtonHomeIsEnabled = true;
-            FooterButtonHomeTextColor = enabledButtonTextColor;
-            FooterButtonHomeBackgroundColor = enabledButtonBackgroundColor;
-
-            FooterButtonLoginIsEnabled = true;
-            FooterButtonLoginTextColor = enabledButtonTextColor;
-            FooterButtonLoginBackgroundColor = enabledButtonBackgroundColor;
-
-            FooterButtonMapIsEnabled = true;
-            FooterButtonMapTextColor = enabledButtonTextColor;
-            FooterButtonMapBackgroundColor = enabledButtonBackgroundColor;
-
-            FooterButtonRegistrationIsEnabled = false;
-            FooterButtonRegistrationTextColor = disabledButtonTextColor;
-            FooterButtonRegistrationBackgroundColor = disabledButtonBackgroundColor;
-        }
-
-        protected void SetTemplateTemplateDefault()
-        {
-            FooterButtonHomeIsEnabled = true;
-            FooterButtonHomeTextColor = enabledButtonTextColor;
-            FooterButtonHomeBackgroundColor = enabledButtonBackgroundColor;
-
-            FooterButtonLoginIsEnabled = true;
-            FooterButtonLoginTextColor = enabledButtonTextColor;
-            FooterButtonLoginBackgroundColor = enabledButtonBackgroundColor;
-
-            FooterButtonMapIsEnabled = true;
-            FooterButtonMapTextColor = enabledButtonTextColor;
-            FooterButtonMapBackgroundColor = enabledButtonBackgroundColor;
-
-            FooterButtonRegistrationIsEnabled = true;
-            FooterButtonRegistrationTextColor = enabledButtonTextColor;
-            FooterButtonRegistrationBackgroundColor = enabledButtonBackgroundColor;
-
-        }
-        protected void SetTemplateDisabledButtonMap()
-        {
-            FooterButtonHomeIsEnabled = true;
-            FooterButtonHomeTextColor = enabledButtonTextColor;
-            FooterButtonHomeBackgroundColor = enabledButtonBackgroundColor;
-
-            FooterButtonLoginIsEnabled = true;
-            FooterButtonLoginTextColor = enabledButtonTextColor;
-            FooterButtonLoginBackgroundColor = enabledButtonBackgroundColor;
-
-            FooterButtonMapIsEnabled = false;
-            FooterButtonMapTextColor = disabledButtonTextColor;
-            FooterButtonMapBackgroundColor = disabledButtonBackgroundColor;
-
-            FooterButtonRegistrationIsEnabled = true;
-            FooterButtonRegistrationTextColor = enabledButtonTextColor;
-            FooterButtonRegistrationBackgroundColor = enabledButtonBackgroundColor;
-        }
+        
+        
          
         public PageLayoutTemplateControl()
         {

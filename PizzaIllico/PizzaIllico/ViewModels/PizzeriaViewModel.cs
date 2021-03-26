@@ -24,6 +24,28 @@ namespace PizzaIllico.ViewModels
 
         private ObservableCollection<Pizza> _pizzas = new ObservableCollection<Pizza>();
 
+        public PizzeriaViewModel()
+        {
+            PizzaBackgroundColor = Color.Olive;
+            GoToPizzaDetailCommand = new Command(Go_toPizzaDetail);
+            RefreshCommand = new Command(Do_refresh);
+
+            FooterButtonHomeCommand = new Command(async () => await NavigationService.PushAsync<HomePage>(GetNavigationParameters()));
+            FooterButtonAccountCommand = new Command(async () => await NavigationService.PushAsync<AccountPage>(GetNavigationParameters()));
+            FooterButtonMapCommand = new Command(async () => await NavigationService.PushAsync<MapPage>(GetNavigationParameters()));
+            FooterButtonCartCommand = new Command(async () => await NavigationService.PushAsync<CartPage>(GetNavigationParameters()));
+            
+        }
+        public override void Initialize(Dictionary<string, object> navigationParameters)
+        {
+            base.Initialize(navigationParameters);
+
+            Id = GetNavigationParameter<string>(Config.KEY_PIZZERIA_ID);
+            Do_refresh(null);
+
+        }
+
+        // ----------------------------------------------------------------------------------------------------------------------------
         public Color PizzaBackgroundColor
         {
             get; set;
@@ -50,33 +72,14 @@ namespace PizzaIllico.ViewModels
             IsRefreshing = false;
         }
 
-        public PizzeriaViewModel()
-        {
-            PizzaBackgroundColor = Color.Olive;
-            GoToPizzaDetailCommand = new Command(Go_toPizzaDetail);
-            RefreshCommand = new Command(Do_refresh);
-
-            FooterButtonHomeCommand = new Command(async () => await NavigationService.PushAsync<HomePage>());
-            FooterButtonLoginCommand = new Command(async () => await NavigationService.PushAsync<LoginPage>());
-            FooterButtonMapCommand = new Command(async () => await NavigationService.PushAsync<MapPage>());
-            FooterButtonRegistrationCommand = new Command(async () => await NavigationService.PushAsync<RegistrationPage>());
-        }
-
-        [NavigationParameter]
+        
         public string Id
         {
             get => _restaurant_id;
             set { SetProperty<string>(ref _restaurant_id, value); } 
         }
 
-        public override void Initialize(Dictionary<string, object> navigationParameters)
-        {
-            base.Initialize(navigationParameters);
-
-            Id = GetNavigationParameter<string>(Config.KEY_PIZZERIA_ID);
-
-            Do_refresh(null);
-        }
+        
 
         public Pizza SelectedPizza
         {
@@ -103,5 +106,6 @@ namespace PizzaIllico.ViewModels
         public ObservableCollection<Pizza> Pizzas { get { return _pizzas; } }
 
         public Command RefreshCommand;
+        
     }
 }

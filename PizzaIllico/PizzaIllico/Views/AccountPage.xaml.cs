@@ -1,23 +1,24 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using PizzaIllico.Controls;
 using PizzaIllico.ViewModels;
+using PizzaIllico.Controls;
 
 namespace PizzaIllico.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PizzeriaPage : PageLayoutTemplateControl
+
+    public partial class AccountPage : PageLayoutTemplateControl
     {
-        private void SetPizzeriaPageLayout()
+        private void SetAccountPageLayout()
         {
             FooterButtonHomeIsEnabled = true;
             FooterButtonHomeTextColor = enabledButtonTextColor;
             FooterButtonHomeBackgroundColor = enabledButtonBackgroundColor;
 
-            FooterButtonAccountIsEnabled = true;
-            FooterButtonAccountTextColor = enabledButtonTextColor;
-            FooterButtonAccountBackgroundColor = enabledButtonBackgroundColor;
+            FooterButtonAccountIsEnabled = false;
+            FooterButtonAccountTextColor = disabledButtonTextColor;
+            FooterButtonAccountBackgroundColor = disabledButtonBackgroundColor;
 
             FooterButtonMapIsEnabled = true;
             FooterButtonMapTextColor = enabledButtonTextColor;
@@ -27,16 +28,16 @@ namespace PizzaIllico.Views
             FooterButtonCartTextColor = enabledButtonTextColor;
             FooterButtonCartBackgroundColor = enabledButtonBackgroundColor;
 
-            PageTitle = "Pizza selection";
-
+            PageTitle = "Account";
         }
-        public PizzeriaPage(): base()
+        public AccountPage(): base()
         {
 
-            SetPizzeriaPageLayout();
+            SetAccountPageLayout();
             InitializeComponent();
 
-            BindingContext = new PizzeriaViewModel();  
+            BindingContext = new AccountViewModel();
+
         }
        
     }

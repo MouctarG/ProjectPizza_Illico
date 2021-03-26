@@ -1,15 +1,20 @@
-﻿using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-using PizzaIllico.Controls;
+﻿using PizzaIllico.Controls;
 using PizzaIllico.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace PizzaIllico.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PizzeriaPage : PageLayoutTemplateControl
+    public partial class CartPage : PageLayoutTemplateControl
     {
-        private void SetPizzeriaPageLayout()
+        private void SetHomePageLayout()
         {
             FooterButtonHomeIsEnabled = true;
             FooterButtonHomeTextColor = enabledButtonTextColor;
@@ -23,21 +28,21 @@ namespace PizzaIllico.Views
             FooterButtonMapTextColor = enabledButtonTextColor;
             FooterButtonMapBackgroundColor = enabledButtonBackgroundColor;
 
-            FooterButtonCartIsEnabled = true;
-            FooterButtonCartTextColor = enabledButtonTextColor;
-            FooterButtonCartBackgroundColor = enabledButtonBackgroundColor;
+            FooterButtonCartIsEnabled = false;
+            FooterButtonCartTextColor = disabledButtonTextColor;
+            FooterButtonCartBackgroundColor = disabledButtonBackgroundColor;
 
-            PageTitle = "Pizza selection";
-
+            PageTitle = "Order";
         }
-        public PizzeriaPage(): base()
+        public CartPage() : base()
         {
 
-            SetPizzeriaPageLayout();
+            SetHomePageLayout();
             InitializeComponent();
 
-            BindingContext = new PizzeriaViewModel();  
+            BindingContext = new CartViewModel();
+
+
         }
-       
     }
 }

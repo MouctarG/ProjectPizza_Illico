@@ -12,7 +12,7 @@ namespace PizzaIllico.Resources.Config
 
     public enum EnumPages
     {
-        HOME, LOGIN, MAP, REGISTRATION, PIZZERIA
+        HOME, LOGIN, MAP, REGISTRATION, PIZZERIA, PROFILE_UPDATE
     }
 
     class Config
@@ -24,19 +24,30 @@ namespace PizzaIllico.Resources.Config
         public static string URL_USER_REGISTRATION = "https://pizza.julienmialon.ovh/api/v1/accounts/register";
         public static string URL_SHOPS = "https://pizza.julienmialon.ovh/api/v1/shops";
 
-
+        public static string RESOURCE_IMAGE_LOGGED_IN = "account2_45";
+        public static string RESOURCE_IMAGE_ACCOUNT = "account45";
 
         public static string CLIENT_ID = "MOBILE";
         public static string CLIENT_SECRET = "UNIV";
 
-        public static string KEY_EMAIL = "email";
-        public static string KEY_PASSWORD = "password";
+        public static string KEY_EMAIL = "Email";
+        public static string KEY_PASSWORD = "Password";
+        public static string KEY_PHONE_NUMBER = "Phone_number";
+        public static string KEY_FIRST_NAME = "First_name";
+        public static string KEY_LAST_NAME = "Last_name";
+        public static string KEY_AUTHENTICATION_TOKEN = "authentication_token";
+
+
         public static string KEY_PIZZERIA_ID = "pizzeriaID";
+
+        public static string MSG_LOGGED_IN = "[ Logged in]";
+        public static string MSG_LOGGED_OUT = "[ Logged out]";
 
         public static string APP_CACHE_ID = "Pizzaillico";
         public static string APP_CACHE_ENCRYPTION_KEY = "prs2kaIuv";
         public static string APP_CACHE_TOKEN_KEY = "kre3Zrft";
         public static string APP_CACHE_BASE_PATH = FileSystem.AppDataDirectory;
+
 
         public static string Pizzeria_getURI(string pizzeria_id)
         {

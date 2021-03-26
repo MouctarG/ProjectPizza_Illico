@@ -15,12 +15,33 @@ namespace PizzaIllico.ViewModels
     class HomeViewModel : PageLayoutViewModel
     {
 
-
+        
         // =====================================================================================================
         private bool _isRefreshing;
         private bool _isRunning;
         private Pizzeria _selectedPizerria;
 
+
+        public HomeViewModel()
+        {
+            _pizzerias = new ObservableCollection<Pizzeria>();
+
+            FooterButtonHomeCommand = new Command(() => { });
+            FooterButtonAccountCommand = new Command(async () => await NavigationService.PushAsync<AccountPage>(GetNavigationParameters()));
+            FooterButtonMapCommand = new Command(async () => await NavigationService.PushAsync<MapPage>(GetNavigationParameters()));
+            FooterButtonCartCommand = new Command(async () => await NavigationService.PushAsync<CartPage>(GetNavigationParameters()));
+
+            GoToPizzeriaDetailCommand = new Command(Go_toPizzeria);
+            RefreshCommand = new Command(Do_refresh);
+
+            Do_refresh(null);
+
+        }
+
+        public override void Initialize(Dictionary<string, object> navigationParameters)
+        {
+            base.Initialize(navigationParameters);
+        }
         public bool IsRunning 
         { 
             get => _isRunning; 
@@ -58,10 +79,8 @@ namespace PizzaIllico.ViewModels
             {
                 
                 var pizzeriaPage = new PizzeriaPage();
-                Dictionary<string, object> navigationParams = new Dictionary<string, object>()
-                {
-                    {Config.KEY_PIZZERIA_ID, _selectedPizerria.Id }
-                };
+                Dictionary<string, object> navigationParams = GetNavigationParameters();
+                navigationParams.Add(Config.KEY_PIZZERIA_ID, _selectedPizerria.Id);
 
                 await NavigationService.PushAsync<PizzeriaPage>(navigationParams);
                
@@ -77,23 +96,7 @@ namespace PizzaIllico.ViewModels
             });
             IsRefreshing = false;
         }
-        public HomeViewModel()
-        {
-            _pizzerias = new ObservableCollection<Pizzeria>();
-
-           
-
-            FooterButtonHomeCommand = new Command(() => { });
-            FooterButtonLoginCommand = new Command(async () => await NavigationService.PushAsync<LoginPage>());
-            FooterButtonMapCommand = new Command(async () => await NavigationService.PushAsync<MapPage>());
-            FooterButtonRegistrationCommand = new Command(async ()  => await NavigationService.PushAsync<RegistrationPage>() );
-
-
-            GoToPizzeriaDetailCommand = new Command(Go_toPizzeria);
-            RefreshCommand = new Command(Do_refresh);
-
-            Do_refresh(null);
-        }
+        
 
     }
 }

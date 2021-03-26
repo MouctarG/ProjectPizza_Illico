@@ -3,6 +3,7 @@ using PizzaIllico.Services;
 using PizzaIllico.Views;
 using Storm.Mvvm;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
@@ -24,12 +25,11 @@ namespace PizzaIllico.ViewModels
         public MapViewModel()
         {
 
-            // FooterButtonMapIsEnabled = false;
-
-            FooterButtonHomeCommand = new Command(async () => await NavigationService.PushAsync<HomePage>());
-            FooterButtonLoginCommand = new Command(async () => await NavigationService.PushAsync<LoginPage>());
             FooterButtonMapCommand = new Command(() => { });
-            FooterButtonRegistrationCommand = new Command(async () => await NavigationService.PushAsync<RegistrationPage>());
+
+            FooterButtonHomeCommand = new Command(async () => await NavigationService.PushAsync<HomePage>(GetNavigationParameters()));
+            FooterButtonAccountCommand = new Command(async () => await NavigationService.PushAsync<AccountPage>(GetNavigationParameters()));
+            FooterButtonCartCommand = new Command(async () => await NavigationService.PushAsync<CartPage>(GetNavigationParameters()));
 
             _pizzeriaService.RequestPizzeriaList((pizzerias) =>
             {
@@ -44,6 +44,11 @@ namespace PizzaIllico.ViewModels
                 }
 
             });
+        }
+
+        public override void Initialize(Dictionary<string, object> navigationParameters)
+        {
+            base.Initialize(navigationParameters);
         }
     }
 }

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PizzaIllico.Controls.PageLayoutTemplateControl"
              xmlns:vm="clr-namespace:PizzaIllico.ViewModels"
-             Title="PizzaIllico" >
+             Title="PizzaIllico">
     <ContentPage.Resources>
         <Style TargetType="Entry">
             <Setter Property="VisualStateManager.VisualStateGroups">
@@ -27,54 +27,82 @@
         </Style>
 
         <ControlTemplate x:Key="PageBlueLayoutTemplate">
+            
             <Grid>
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.8*" />
-                    <RowDefinition Height="0.1*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.75*" />
+                    <RowDefinition Height="0.07*" />
                 </Grid.RowDefinitions>
-                
-                <ContentPresenter Grid.Row="0" />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
-                <StackLayout Orientation="Horizontal" Grid.Row="1"  >
-                    <Button  Grid.Column="0"  Text="Home"
-                             TextTransform="Lowercase" 
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black">
+                    <Label Text="{TemplateBinding  PageTitle}" TextColor="Orange" VerticalOptions="CenterAndExpand" TextTransform="Default" 
+                           CharacterSpacing="6" FontSize="Small" />
+                    <Label Text="{Binding  Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=HeaderLoggedInInfo}" TextColor="Orange" 
+                           VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" TextTransform="Default" 
+                           CharacterSpacing="2" FontSize="Small" Margin="4" />
+                </StackLayout>
+
+                <ContentPresenter Grid.Row="1" />
+
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="AliceBlue" Grid.Row="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.25*" />
+                            <ColumnDefinition Width="0.25*" />
+                            <ColumnDefinition Width="0.25*" />
+                            <ColumnDefinition Width="0.25*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Button 
+                              TextTransform="Lowercase"  
                              VerticalOptions="FillAndExpand" 
                              HorizontalOptions="FillAndExpand" 
+                             ImageSource="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=FooterButtonAccountImage}"
+                          
+                             TextColor="{TemplateBinding  FooterButtonAccountTextColor}" 
+                             BackgroundColor="{TemplateBinding  FooterButtonAccountBackgroundColor}"
+                             IsEnabled="{TemplateBinding  FooterButtonAccountIsEnabled}" 
+                             Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=FooterButtonAccountCommand}" />
+
+                        <Button ImageSource="home45" Grid.Column="1"
+                               
+                             TextTransform="Lowercase" 
+                             VerticalOptions="FillAndExpand" 
+                             HorizontalOptions="CenterAndExpand" 
                              TextColor="{TemplateBinding FooterButtonHomeTextColor}" 
                              IsEnabled="{TemplateBinding  FooterButtonHomeIsEnabled}" 
                              BackgroundColor="{TemplateBinding  FooterButtonHomeBackgroundColor}"
                              Command="{Binding  Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=FooterButtonHomeCommand}" />
 
-                    <Button   Grid.Column="1" Text="Map" 
+                        <Button ImageSource="map45" Grid.Column="2"
                              TextTransform="Lowercase" 
                              VerticalOptions="FillAndExpand" 
-                             HorizontalOptions="FillAndExpand" 
+                             HorizontalOptions="CenterAndExpand" 
+                                  
                              TextColor="{TemplateBinding FooterButtonMapTextColor}" 
                              BackgroundColor="{TemplateBinding FooterButtonMapBackgroundColor}"
                              IsEnabled="{TemplateBinding FooterButtonMapIsEnabled}"
                              Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}},Path=FooterButtonMapCommand}" />
-
-                    <Button  Grid.Column="2" Text="Registration" 
-                             TextTransform="Lowercase" 
+                        <Button ImageSource="cart45" Grid.Column="3"
+                             TextTransform="Lowercase" Text="0"
                              VerticalOptions="FillAndExpand" 
-                             HorizontalOptions="FillAndExpand" 
-                             TextColor="{TemplateBinding FooterButtonRegistrationTextColor}" 
-                             BackgroundColor="{TemplateBinding FooterButtonRegistrationBackgroundColor}"
-                             IsEnabled="{TemplateBinding FooterButtonRegistrationIsEnabled}" 
-                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=FooterButtonRegistrationCommand}" />
-                             
-                             
-                    <Button  Grid.Column="3" Text="Login"
-                              TextTransform="Lowercase"  
-                             VerticalOptions="FillAndExpand" 
-                             HorizontalOptions="FillAndExpand" 
-                             TextColor="{TemplateBinding  FooterButtonLoginTextColor}" 
-                             BackgroundColor="{TemplateBinding  FooterButtonLoginBackgroundColor}"
-                             IsEnabled="{TemplateBinding  FooterButtonLoginIsEnabled}" 
-                             Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=FooterButtonLoginCommand}" />
-
+                                   
+                             HorizontalOptions="CenterAndExpand" 
+                             TextColor="{TemplateBinding FooterButtonCartTextColor}" 
+                             BackgroundColor="{TemplateBinding FooterButtonCartBackgroundColor}"
+                             IsEnabled="{TemplateBinding FooterButtonCartIsEnabled}" 
+                             Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=FooterButtonCartCommand}" />
+                        <!-- home -->
+                    </Grid>
                 </StackLayout>
+
+
+
 
             </Grid>
         </ControlTemplate>
