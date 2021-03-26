@@ -19,10 +19,10 @@
                 <Entry Placeholder="Login" FontSize="16" Text="{Binding Email}" />
                 <Entry Placeholder="Mot de passe" IsPassword="True" FontSize="16" 
                                Text="{Binding Password}" />
-                <Label FontSize="12" Text="{Binding LoginErrorMessage}" />
+                <Label FontSize="12" Text="{Binding ErrorMessage}" />
             </StackLayout>
             <StackLayout Grid.Row="1" Margin="10">
-                <Button Text="Login" BackgroundColor="#0077be" TextColor="White" 
+                <Button Text="Login" BackgroundColor="Black" TextColor="White" 
                                 Command="{Binding LoginCommand}" />
             </StackLayout>
 

@@ -13,9 +13,6 @@ namespace PizzaIllico.ViewModels
     {
         private bool _isRegistered = false;
 
-
-        private string registrationErrorMessage;
-
         IAccountService _loginService = DependencyService.Get<IAccountService>();
 
         public override void Initialize(Dictionary<string, object> navigationParameters)
@@ -57,12 +54,7 @@ namespace PizzaIllico.ViewModels
 
 
         // -------------------------------------------------------------------------------------------------------------
-        public string ErrorMessage
-        {
-            get => registrationErrorMessage;
-            set { SetProperty<string>(ref registrationErrorMessage, value); }
-        }
-
+       
         public bool IsRegistered
         {
             get => _isRegistered;

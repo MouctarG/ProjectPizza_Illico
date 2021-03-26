@@ -20,11 +20,9 @@ namespace PizzaIllico.ViewModels
         // private string _userID = "";
         // private string _userPassword = "";
 
-        private string _loginErrorMessage = "";
+        // AuthenticationToken _cachedOauth = null;
 
-        AuthenticationToken _cachedOauth = null;
-
-        IAuthenticationService _loginService = DependencyService.Get<IAuthenticationService>();
+        // IAuthenticationService _loginService = DependencyService.Get<IAuthenticationService>();
 
         public AccountViewModel()
         {
@@ -71,37 +69,30 @@ namespace PizzaIllico.ViewModels
         private async void Do_login(object obj)
         {
             DateTime start_time = DateTime.UtcNow;
-            AuthenticationLoginResponse login_result = await _loginService.Login(new AuthenticationLoginRequest(Email, Password));
+            AuthenticationLoginResponse login_result = await authentificationService.Login(new AuthenticationLoginRequest(Email, Password));
 
             is_logged_in = login_result.Is_success;
 
             if (is_logged_in)
             {
                 TimeSpan timeSpan = TimeSpan.FromSeconds(login_result.Data.Expires_in) + DateTime.UtcNow.Subtract(start_time);
-                LoginErrorMessage = "";
+                ErrorMessage = "";
                 authentication_token = new AuthenticationToken(login_result.Data);
 
-                _loginService.StoreToken<AuthenticationToken>(authentication_token, timeSpan);
+                authentificationService.StoreToken<AuthenticationToken>(authentication_token, timeSpan);
 
-                LoginErrorMessage = "[Succes] " + authentication_token.Access_token + " " + authentication_token.Refresh_token + " " + authentication_token.Expires_in;
+                ErrorMessage = "[Succes] " + authentication_token.Access_token + " " + authentication_token.Refresh_token + " " + authentication_token.Expires_in;
 
                 await NavigationService.PushAsync<HomePage>(GetNavigationParameters());
             }
             else
             {
-                LoginErrorMessage = "[Error] " + login_result.Error_code;   // TODO: utiliser une resource statique
+                ErrorMessage = "[Error] " + login_result.Error_code;   // TODO: utiliser une resource statique
             }
 
         }
 
         // ---------------------------------------------------------------------------------------------------------
-
-
-        public string LoginErrorMessage
-        {
-            get => _loginErrorMessage;
-            set { SetProperty<string>(ref _loginErrorMessage, value); }
-        }
 
         public Command GoToRegistrationCommand { get; }
         public Command GoToPasswordUpdateCommand { get;  }

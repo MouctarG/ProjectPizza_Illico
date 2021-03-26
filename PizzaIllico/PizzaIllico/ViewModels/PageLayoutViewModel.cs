@@ -33,7 +33,7 @@ namespace PizzaIllico.ViewModels
         // private string _userID = "";
         // private string _userPassword = "";
 
-        private string _loginErrorMessage = "";
+        private string errorMessage = "";
 
 
         public Command FooterButtonHomeCommand
@@ -42,6 +42,11 @@ namespace PizzaIllico.ViewModels
         public Command FooterButtonCartCommand { get; set; }
         public Command FooterButtonMapCommand { get; set; }
 
+        public string ErrorMessage
+        {
+            get => errorMessage;
+            set { SetProperty<string>(ref errorMessage, value); }
+        }
         protected Dictionary<string, object> GetNavigationParameters()
         {
             return new Dictionary<string, object>()
