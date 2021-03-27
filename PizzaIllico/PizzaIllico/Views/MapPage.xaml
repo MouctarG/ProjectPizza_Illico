@@ -4,7 +4,7 @@
                            xmlns:controls="clr-namespace:PizzaIllico.Controls" 
                            xmlns:map="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
                            x:Class="PizzaIllico.Views.MapPage"
-                           ControlTemplate="{StaticResource PageBlueLayoutTemplate}">
+                           ControlTemplate="{StaticResource PageLayoutTemplate}">
 
     <ContentPage.Content>
         <Grid>

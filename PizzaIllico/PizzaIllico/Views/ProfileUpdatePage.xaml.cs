@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PizzaIllico.Controls;
+using PizzaIllico.ViewModels;
 
-using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 
@@ -12,12 +8,36 @@ using Xamarin.Forms.Xaml;
 namespace PizzaIllico.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProfileUpdatePage : ProfilePage
+    public partial class ProfileUpdatePage : PageLayoutTemplateControl
     {
-        
-        public ProfileUpdatePage(): base(PizzaIllico.Resources.Config.EnumPages.PROFILE_UPDATE)
+
+        private void SetProfilePageLayout()
         {
-            
+            FooterButtonHomeIsEnabled = true;
+            FooterButtonHomeTextColor = enabledButtonTextColor;
+            FooterButtonHomeBackgroundColor = enabledButtonBackgroundColor;
+
+            FooterButtonAccountIsEnabled = true;
+            FooterButtonAccountTextColor = enabledButtonTextColor;
+            FooterButtonAccountBackgroundColor = enabledButtonBackgroundColor;
+
+            FooterButtonMapIsEnabled = true;
+            FooterButtonMapTextColor = enabledButtonTextColor;
+            FooterButtonMapBackgroundColor = enabledButtonBackgroundColor;
+
+            FooterButtonCartIsEnabled = true;
+            FooterButtonCartTextColor = enabledButtonTextColor;
+            FooterButtonCartBackgroundColor = enabledButtonBackgroundColor;
+
+            PageTitle = "Profile update";
+        }
+        public ProfileUpdatePage()
+        {
+            SetProfilePageLayout();
+
+            InitializeComponent();
+            BindingContext = new ProfileUpdateViewModel();
+
         }
     }
 }

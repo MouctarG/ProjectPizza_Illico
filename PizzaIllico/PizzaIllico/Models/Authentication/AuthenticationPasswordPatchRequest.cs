@@ -5,13 +5,14 @@ namespace PizzaIllico.Models.Authentication
     {
         private string old_password;
         private string new_password;
-        private string access_token;
-
+        // private string access_token;
+        /*
         public string Access_token
         {
             get => access_token;
             set => access_token = value;
         }
+        */
         public string New_Password
         {
             get => new_password;
@@ -23,11 +24,11 @@ namespace PizzaIllico.Models.Authentication
             set => old_password = value;
         }
 
-        public AuthenticationPasswordPatchRequest(string old_password, string new_password, string access_token)
+        public AuthenticationPasswordPatchRequest(string old_password, string new_password)
         {
             this.old_password = old_password;
             this.new_password = new_password;
-            this.access_token = access_token;
+            // this.access_token = access_token;
         }
     }
 }

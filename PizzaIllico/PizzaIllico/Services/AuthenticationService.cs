@@ -98,35 +98,14 @@ namespace PizzaIllico.Services
 
                 string contentResponse = await response.Content.ReadAsStringAsync();
 
-
-                if (response.IsSuccessStatusCode)
-                {
-                    //  var jsonString = await response.Content.ReadAsStringAsync();
-                    loginOutput = JsonConvert.DeserializeObject<AuthenticationLoginResponse>(contentResponse);
-                    // loginOutput.Result.Is_success = true;
-
-                    //    = JsonSerializer.Deserialize<GetLoginData>(response.);
-                    // Debug.WriteLine(@"\tTodoItem successfully saved.");
-                }
-                else
-                {
-                    loginOutput = new AuthenticationLoginResponse();
-                    // loginOutput.Result.Is_success = false;
-                    // loginOutput.Result.Error_code = ErrorCode.LOGIN_ABORTED;
-                    return loginOutput;
-                }
-
+                loginOutput = JsonConvert.DeserializeObject<AuthenticationLoginResponse>(contentResponse);
+               
             }
             catch (Exception ex)
             {
                 if (loginOutput == null) loginOutput = new AuthenticationLoginResponse();
                 loginOutput.Error_message = ex.Message;
 
-                // loginOutput.Result.Is_success = false;
-                // loginOutput.Result.Error_code = ErrorCode.LOGIN_ABORTED;
-                // Debug.WriteLine(@"\tERROR {0}", ex.Message);
-
-                // Debug.WriteLine("IMPOSSIBLE Connect", ex.Message);
             }
 
             return loginOutput;

@@ -1,4 +1,5 @@
-﻿using PizzaIllico.Models.Library;
+﻿using PizzaIllico.Models.Account;
+using PizzaIllico.Models.Library;
 using PizzaIllico.Services;
 using PizzaIllico.Views;
 using System;
@@ -10,11 +11,6 @@ namespace PizzaIllico.ViewModels
 {
     class ProfileUpdateViewModel : PageLayoutViewModel
     {
-        private bool _isRegistered = false;
-
-
-        private string registrationErrorMessage;
-
         public override void Initialize(Dictionary<string, object> navigationParameters)
         {
             base.Initialize(navigationParameters);
@@ -22,41 +18,42 @@ namespace PizzaIllico.ViewModels
         public ProfileUpdateViewModel()
         {
 
-            FooterButtonHomeCommand = new Command(async () => await NavigationService.PushAsync<HomePage>(GetNavigationParameters()));
-            FooterButtonAccountCommand = new Command(async () => await NavigationService.PushAsync<AccountPage>(GetNavigationParameters()));
-            FooterButtonMapCommand = new Command(async () => await NavigationService.PushAsync<MapPage>(GetNavigationParameters()));
-            FooterButtonCartCommand = new Command(async () => await NavigationService.PushAsync<CartPage>(GetNavigationParameters()));
-
-            RegisterCommand = new Command(Do_register);
+            FooterButtonBackArrow = new Command(async () => await NavigationService.PopAsync());
+            ExecuteCommand = new Command(Do_update_profile);
         }
-
-
-        private async void Do_register(object obj)
-        {
-            // string email, string first_name, string last_name, string phone_number, string password
-
-            
-
-            // TODO: Navigate to the restaurant list
-
-        }
-
 
         // -------------------------------------------------------------------------------------------------------------
-        public string RegistrationErrorMessage
+        private async void Do_update_profile()
         {
-            get => registrationErrorMessage;
-            set { SetProperty<string>(ref registrationErrorMessage, value); }
+            if (is_logged_out)
+            {
+                await Application.Current.MainPage.DisplayAlert("Information", "Please Login first", "OK");
+                await NavigationService.PopAsync();
+            }
+            else
+            {
+                IAccountService accountService = DependencyService.Get<IAccountService>();
+                AccountInformationPatchRequest accountInformationPatchRequest = new AccountInformationPatchRequest(
+                    email, first_name, last_name, phone_number, authentication_token.Access_token);
+
+                AccountInformationPatchResponse response = await accountService.ChangeUserProfile(accountInformationPatchRequest, authentication_token.Access_token);
+
+                if (response.Is_success)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Information", "User info updated successfully", "OK");
+                    await NavigationService.PopAsync();
+                }
+                else
+                {
+                    string msg = response.ToString();
+                    await Application.Current.MainPage.DisplayAlert("Alert", "User info couldn't be updated" + msg, "OK");
+                }
+
+            }
         }
 
-        public bool IsRegistered
-        {
-            get => _isRegistered;
-            set { SetProperty<bool>(ref _isRegistered, value); }
-        }
-
-
-        public Command RegisterCommand { get; }
+        public Command FooterButtonBackArrow { get; }
+        public Command ExecuteCommand { get; }
 
     }
 }

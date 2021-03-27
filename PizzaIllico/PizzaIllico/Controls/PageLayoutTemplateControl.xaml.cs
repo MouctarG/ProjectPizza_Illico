@@ -8,13 +8,19 @@ namespace PizzaIllico.Controls
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageLayoutTemplateControl : ContentPage
     {
-
+        /**
         protected static Color disabledButtonBackgroundColor = Color.DeepSkyBlue;
         protected static Color enabledButtonBackgroundColor = Color.Azure;
 
         protected static Color enabledButtonTextColor = Color.DarkSlateGray;
         protected static Color disabledButtonTextColor = Color.DarkSlateGray;
+        */
+        protected static Color disabledButtonBackgroundColor = Color.White;
+        protected static Color enabledButtonBackgroundColor = Color.Black;
 
+        protected static Color enabledButtonTextColor = Color.DarkSlateGray;
+        protected static Color disabledButtonTextColor = Color.White;
+        
 
         public Color FooterEnabledButtonTextColor
         {

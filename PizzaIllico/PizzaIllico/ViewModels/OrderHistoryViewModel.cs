@@ -10,17 +10,8 @@ namespace PizzaIllico.ViewModels
     {
         public OrderHistoryViewModel()
         {
-            
-                FooterButtonAccountCommand = new Command(async () => await NavigationService.PushAsync<AccountPage>(GetNavigationParameters()));
-
-                FooterButtonHomeCommand = new Command(async () => await NavigationService.PushAsync<HomePage>(GetNavigationParameters()));
-                FooterButtonMapCommand = new Command(async () => await NavigationService.PushAsync<MapPage>(GetNavigationParameters()));
-
-                // TODO
-                FooterButtonCartCommand = new Command(async () => await NavigationService.PushAsync<CartPage>(GetNavigationParameters()));
-            // -----------------------------------------------------------------------------------------------------------------------------------------
-
-
+            FooterButtonBackArrow = new Command(async () => await NavigationService.PopAsync());
         }
+        public Command FooterButtonBackArrow { get; }
     }
 }

@@ -11,9 +11,6 @@ namespace PizzaIllico.ViewModels
 {
     class ProfileRegistrationViewModel: PageLayoutViewModel
     {
-        private bool _isRegistered = false;
-
-        IAccountService _loginService = DependencyService.Get<IAccountService>();
 
         public override void Initialize(Dictionary<string, object> navigationParameters)
         {
@@ -23,11 +20,7 @@ namespace PizzaIllico.ViewModels
         public ProfileRegistrationViewModel()
         {
 
-            FooterButtonHomeCommand = new Command(async () => await NavigationService.PushAsync<HomePage>(GetNavigationParameters()));
-            FooterButtonAccountCommand = new Command(async () => await NavigationService.PushAsync<AccountPage>(GetNavigationParameters()));
-            FooterButtonMapCommand = new Command(async () => await NavigationService.PushAsync<MapPage>(GetNavigationParameters()));
-            FooterButtonCartCommand = new Command(async () => await NavigationService.PushAsync<CartPage>(GetNavigationParameters()));
-
+            FooterButtonBackArrow = new Command(async () => await NavigationService.PopAsync());
 
             ExecuteCommand = new Command(Do_register);
 
@@ -35,33 +28,24 @@ namespace PizzaIllico.ViewModels
 
         private async void Do_register(object obj)
         {
-            // string email, string first_name, string last_name, string phone_number, string password
+            IAccountService accountService = DependencyService.Get<IAccountService>();
+            AccountRegistrationResponse response = await accountService.Register(new AccountRegistrationRequest(Email, First_name, Last_name, Phone_number, Password));
 
-            AccountRegistrationResponse registration_result = await _loginService.Register(new AccountRegistrationRequest(Email, First_name, Last_name, Phone_number, Password));
-
-            IsRegistered = registration_result.Is_success;
-
-            if (IsRegistered)
+            if (response.Is_success)
             {
-                ErrorMessage = "";
-                await NavigationService.PushAsync<HomePage>(GetNavigationParameters());
+                await Application.Current.MainPage.DisplayAlert("Information", "Registration successfull", "OK");
+                await NavigationService.PopAsync();
             }
-            else ErrorMessage = "[Error] " + registration_result.Error_message;  // TODO: utiliser une resource statique
-
-            // TODO: Navigate to the restaurant list
-
+            else
+            {
+                string msg = response.ToString();
+                await Application.Current.MainPage.DisplayAlert("Alert", "Registration failed" + msg, "OK");
+            }
         }
 
 
         // -------------------------------------------------------------------------------------------------------------
-       
-        public bool IsRegistered
-        {
-            get => _isRegistered;
-            set { SetProperty<bool>(ref _isRegistered, value); }
-        }
-
-
         public Command ExecuteCommand { get; }
+        public Command FooterButtonBackArrow { get;  }
     }
 }

@@ -12,7 +12,7 @@ namespace PizzaIllico.Resources.Config
 
     public enum EnumPages
     {
-        HOME, LOGIN, MAP, REGISTRATION, PIZZERIA, PROFILE_UPDATE
+        HOME, LOGIN, MAP, REGISTRATION, PIZZERIA, PROFILE_UPDATE, PASSWORD_UPDATE, CART, ORDER_HISTORY
     }
 
     class Config
@@ -23,6 +23,10 @@ namespace PizzaIllico.Resources.Config
         public static string URL_LOGIN = "https://pizza.julienmialon.ovh/api/v1/authentication/credentials";
         public static string URL_USER_REGISTRATION = "https://pizza.julienmialon.ovh/api/v1/accounts/register";
         public static string URL_SHOPS = "https://pizza.julienmialon.ovh/api/v1/shops";
+        public static string URL_UPDATE_PASSWORD = "https://pizza.julienmialon.ovh/api/v1/authentication/credentials/set";
+        public static string URL_REFRESH_TOKEN = "https://pizza.julienmialon.ovh/api/v1/authentication/refresh";
+        public static string URL_UPDATE_PROFILE = "https://pizza.julienmialon.ovh/api/v1/accounts/me";
+
 
         public static string RESOURCE_IMAGE_LOGGED_IN = "account2_45";
         public static string RESOURCE_IMAGE_ACCOUNT = "account45";

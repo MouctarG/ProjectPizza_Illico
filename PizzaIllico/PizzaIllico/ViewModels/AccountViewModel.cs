@@ -14,35 +14,10 @@ namespace PizzaIllico.ViewModels
 {
     class AccountViewModel : PageLayoutViewModel
     {
-
-        private bool _isLoggedIn = false;
-
-        // private string _userID = "";
-        // private string _userPassword = "";
-
-        // AuthenticationToken _cachedOauth = null;
-
-        // IAuthenticationService _loginService = DependencyService.Get<IAuthenticationService>();
-
+        private EnumPages targetPage = EnumPages.LOGIN;
         public AccountViewModel()
         {
             LoginCommand = new Command(Do_login);
-
-            // FooterButtonAccountIsEnabled = false;
-
-            /**
-            _cachedOauth = _loginService.GetToken<AuthenticationToken>();
-            if (_cachedOauth != null)
-            {
-                IsLoggedIn = true;
-                // debug messsage
-                LoginErrorMessage = "[TOKEN STILL VALID] " + _cachedOauth.Access_token + " " + _cachedOauth.Refresh_token + " " + _cachedOauth.Expires_in;
-
-                // navigate to the requested page (in the passed parameters) TODO: page de paiement ou home ou autre
-
-            }
-            else IsLoggedIn = false;
-            */
 
             FooterButtonAccountCommand = new Command(() => { });
 
@@ -56,9 +31,24 @@ namespace PizzaIllico.ViewModels
 
             GoToRegistrationCommand = new Command(async () => await NavigationService.PushAsync<ProfileRegistrationPage>(GetNavigationParameters()));
 
-            GoToProfileUpdateCommand = new Command(async () => await NavigationService.PushAsync<ProfileUpdatePage>(GetNavigationParameters()));
-            GoToPasswordUpdateCommand = new Command(async () => await NavigationService.PushAsync<PasswordUpdatePage>(GetNavigationParameters()));
-            GoToOrderHistoryCommand = new Command(async () => await NavigationService.PushAsync<OrderHistoryPage>(GetNavigationParameters()));
+            GoToProfileUpdateCommand = new Command(async () =>
+            {
+                targetPage = EnumPages.PROFILE_UPDATE;
+                if (is_logged_out) await Application.Current.MainPage.DisplayAlert("Information", "Please login first", "OK");
+                else await NavigationService.PushAsync<ProfileUpdatePage>(GetNavigationParameters());
+            });
+            GoToPasswordUpdateCommand = new Command(async () =>
+            {
+                targetPage = EnumPages.PASSWORD_UPDATE;
+                if(is_logged_out) await Application.Current.MainPage.DisplayAlert("Information", "Please login first", "OK");
+                else await NavigationService.PushAsync<PasswordUpdatePage>(GetNavigationParameters());
+            });
+            GoToOrderHistoryCommand = new Command(async () =>
+            {
+                targetPage = EnumPages.ORDER_HISTORY;
+                if (is_logged_out) await Application.Current.MainPage.DisplayAlert("Information", "Please login first", "OK");
+                else await NavigationService.PushAsync<OrderHistoryPage>(GetNavigationParameters());
+            });
 
         }
 
@@ -71,9 +61,9 @@ namespace PizzaIllico.ViewModels
             DateTime start_time = DateTime.UtcNow;
             AuthenticationLoginResponse login_result = await authentificationService.Login(new AuthenticationLoginRequest(Email, Password));
 
-            is_logged_in = login_result.Is_success;
+            IsLoggedOut = !login_result.Is_success;
 
-            if (is_logged_in)
+            if (!is_logged_out)
             {
                 TimeSpan timeSpan = TimeSpan.FromSeconds(login_result.Data.Expires_in) + DateTime.UtcNow.Subtract(start_time);
                 ErrorMessage = "";
@@ -81,9 +71,12 @@ namespace PizzaIllico.ViewModels
 
                 authentificationService.StoreToken<AuthenticationToken>(authentication_token, timeSpan);
 
-                ErrorMessage = "[Succes] " + authentication_token.Access_token + " " + authentication_token.Refresh_token + " " + authentication_token.Expires_in;
+                // ErrorMessage = "[Succes] " + authentication_token.Access_token + " " + authentication_token.Refresh_token + " " + authentication_token.Expires_in;
 
-                await NavigationService.PushAsync<HomePage>(GetNavigationParameters());
+                SetLoggedInInfo();
+
+                if( targetPage == EnumPages.HOME) await NavigationService.PushAsync<HomePage>(GetNavigationParameters());
+                else if(targetPage == EnumPages.PASSWORD_UPDATE) await NavigationService.PushAsync<PasswordUpdatePage>(GetNavigationParameters());
             }
             else
             {

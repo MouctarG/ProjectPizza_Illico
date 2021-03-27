@@ -22,13 +22,10 @@ namespace PizzaIllico.ViewModels
         // authentication
         protected IAuthenticationService authentificationService = DependencyService.Get<IAuthenticationService>();
         protected AuthenticationToken authentication_token = null;
-        protected bool is_logged_in;
 
 
         protected Dictionary<string, object> navigationParams = new Dictionary<string, object>();
         // ------------------------------------------------------------------------------------------
-
-        private bool _isLoggedIn = false;
 
         // private string _userID = "";
         // private string _userPassword = "";
@@ -97,7 +94,7 @@ namespace PizzaIllico.ViewModels
         public PageLayoutViewModel()
         {
             Authentication_token = authentificationService.GetToken<AuthenticationToken>();
-            is_logged_in = (authentication_token != null);
+            IsLoggedOut = !(authentication_token != null);
             SetLoggedInInfo();
         }
         public override void Initialize(Dictionary<string, object> navigationParameters)
@@ -115,11 +112,11 @@ namespace PizzaIllico.ViewModels
              * if (!is_logged_in) HeaderLoggedInInfo = Config.MSG_LOGGED_OUT;
             else HeaderLoggedInInfo = Config.MSG_LOGGED_IN;
             */
-
         }
 
         protected string footerButtonAccountImage;
         protected string header_logged_in_info;
+        protected bool is_logged_out;
 
         public string FooterButtonAccountImage
         {
@@ -130,13 +127,23 @@ namespace PizzaIllico.ViewModels
             get => header_logged_in_info;
             set { SetProperty<string>(ref header_logged_in_info, value); }
         }
+
+        public bool IsLoggedOut{
+            get => is_logged_out;
+            set { SetProperty<bool>(ref is_logged_out, value); }
+        }
         protected void SetLoggedInInfo()
         {
-            if (!is_logged_in) HeaderLoggedInInfo = Config.MSG_LOGGED_OUT;
-            else HeaderLoggedInInfo = Config.MSG_LOGGED_IN;
-
-            if (!is_logged_in) FooterButtonAccountImage = Config.RESOURCE_IMAGE_ACCOUNT;
-            else FooterButtonAccountImage = Config.RESOURCE_IMAGE_LOGGED_IN;
+            if (is_logged_out)
+            {
+                HeaderLoggedInInfo = Config.MSG_LOGGED_OUT;
+                FooterButtonAccountImage = Config.RESOURCE_IMAGE_ACCOUNT;
+            }
+            else
+            {
+                HeaderLoggedInInfo = Config.MSG_LOGGED_IN;
+                FooterButtonAccountImage = Config.RESOURCE_IMAGE_LOGGED_IN;
+            }
         }
     }
 }

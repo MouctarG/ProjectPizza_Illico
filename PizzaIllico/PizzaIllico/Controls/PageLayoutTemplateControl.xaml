@@ -26,17 +26,17 @@
             </Setter>
         </Style>
 
-        <ControlTemplate x:Key="PageBlueLayoutTemplate">
+        <ControlTemplate x:Key="PageLayoutTemplate">
             
             <Grid>
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.05*" />
-                    <RowDefinition Height="0.75*" />
-                    <RowDefinition Height="0.07*" />
+                    <RowDefinition Height="0.85*" />
+                    <RowDefinition Height="0.1*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black">
@@ -49,7 +49,7 @@
 
                 <ContentPresenter Grid.Row="1" />
 
-                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="AliceBlue" Grid.Row="2">
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="Black" Grid.Row="2">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.25*" />
@@ -58,10 +58,10 @@
                             <ColumnDefinition Width="0.25*" />
                         </Grid.ColumnDefinitions>
 
+                        
                         <Button 
                               TextTransform="Lowercase"  
-                             VerticalOptions="FillAndExpand" 
-                             HorizontalOptions="FillAndExpand" 
+                            
                              ImageSource="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=FooterButtonAccountImage}"
                           
                              TextColor="{TemplateBinding  FooterButtonAccountTextColor}" 
@@ -97,8 +97,51 @@
                              BackgroundColor="{TemplateBinding FooterButtonCartBackgroundColor}"
                              IsEnabled="{TemplateBinding FooterButtonCartIsEnabled}" 
                              Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=FooterButtonCartCommand}" />
+
+                        
+                        
                         <!-- home -->
                     </Grid>
+                </StackLayout>
+
+
+
+
+            </Grid>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="ViewLayoutTemplate">
+
+            <Grid HorizontalOptions="FillAndExpand">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.85*" />
+                    <RowDefinition Height="0.1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black">
+                    <Label Text="{TemplateBinding  PageTitle}" TextColor="Orange" VerticalOptions="CenterAndExpand" TextTransform="Default" 
+                           CharacterSpacing="6" FontSize="Small" />
+                    <Label Text="{Binding  Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=HeaderLoggedInInfo}" TextColor="Orange" 
+                           VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" TextTransform="Default" 
+                           CharacterSpacing="2" FontSize="Small" Margin="4" />
+                </StackLayout>
+
+                <ContentPresenter Grid.Row="1" />
+
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="Black" Grid.Row="2">
+                    <Button 
+                              TextTransform="Lowercase"  
+                            
+                             ImageSource="arrow45"
+                            BackgroundColor="Black"
+                              HorizontalOptions="Center"
+                            VerticalOptions="CenterAndExpand"
+                             Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=FooterButtonBackArrow}" />
                 </StackLayout>
 
 
