@@ -58,13 +58,12 @@
                             <ColumnDefinition Width="0.25*" />
                         </Grid.ColumnDefinitions>
 
-                        
+
                         <Button 
                               TextTransform="Lowercase"  
                             
                              ImageSource="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=FooterButtonAccountImage}"
                           
-                             TextColor="{TemplateBinding  FooterButtonAccountTextColor}" 
                              BackgroundColor="{TemplateBinding  FooterButtonAccountBackgroundColor}"
                              IsEnabled="{TemplateBinding  FooterButtonAccountIsEnabled}" 
                              Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=FooterButtonAccountCommand}" />
@@ -74,7 +73,7 @@
                              TextTransform="Lowercase" 
                              VerticalOptions="FillAndExpand" 
                              HorizontalOptions="CenterAndExpand" 
-                             TextColor="{TemplateBinding FooterButtonHomeTextColor}" 
+                             
                              IsEnabled="{TemplateBinding  FooterButtonHomeIsEnabled}" 
                              BackgroundColor="{TemplateBinding  FooterButtonHomeBackgroundColor}"
                              Command="{Binding  Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=FooterButtonHomeCommand}" />
@@ -84,29 +83,21 @@
                              VerticalOptions="FillAndExpand" 
                              HorizontalOptions="CenterAndExpand" 
                                   
-                             TextColor="{TemplateBinding FooterButtonMapTextColor}" 
                              BackgroundColor="{TemplateBinding FooterButtonMapBackgroundColor}"
                              IsEnabled="{TemplateBinding FooterButtonMapIsEnabled}"
                              Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}},Path=FooterButtonMapCommand}" />
                         <Button ImageSource="cart45" Grid.Column="3"
-                             TextTransform="Lowercase" Text="0"
+                             TextTransform="Lowercase" 
                              VerticalOptions="FillAndExpand" 
                                    
                              HorizontalOptions="CenterAndExpand" 
-                             TextColor="{TemplateBinding FooterButtonCartTextColor}" 
                              BackgroundColor="{TemplateBinding FooterButtonCartBackgroundColor}"
                              IsEnabled="{TemplateBinding FooterButtonCartIsEnabled}" 
                              Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=FooterButtonCartCommand}" />
 
-                        
-                        
-                        <!-- home -->
+
                     </Grid>
                 </StackLayout>
-
-
-
-
             </Grid>
         </ControlTemplate>
 

@@ -42,7 +42,7 @@ namespace PizzaIllico.ViewModels
         }
 
         // ----------------------------------------------------------------------------------------------------------------------------
-        private async void OnPizzaSelectionChanged(object sender)
+        private void OnPizzaSelectionChanged(object sender)
         {
             if(_selectedPizza != null)
             {
@@ -51,7 +51,6 @@ namespace PizzaIllico.ViewModels
                 {
                     CurrentCart.Pizzas.Add(_selectedPizza);
                 }
-                await Application.Current.MainPage.DisplayAlert("Selected items", CurrentCart.ToString(), "OK");
             } 
         }
 

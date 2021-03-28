@@ -45,10 +45,7 @@ namespace PizzaIllico.ViewModels
                     Position position = new Position(Convert.ToDouble(item.Latitude), Convert.ToDouble(item.Longitude));
 
                     _pizzerias.Add(new Pizzeria2D(item));
-
-
                 }
-
             });
         }
         public override void Initialize(Dictionary<string, object> navigationParameters)

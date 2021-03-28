@@ -18,19 +18,15 @@ namespace PizzaIllico.Views
         protected void SetPasswordUpdatePageLayout()
         {
             FooterButtonHomeIsEnabled = true;
-            FooterButtonHomeTextColor = enabledButtonTextColor;
             FooterButtonHomeBackgroundColor = enabledButtonBackgroundColor;
 
             FooterButtonAccountIsEnabled = true;
-            FooterButtonAccountTextColor = enabledButtonTextColor;
             FooterButtonAccountBackgroundColor = enabledButtonBackgroundColor;
 
             FooterButtonMapIsEnabled = true;
-            FooterButtonMapTextColor = enabledButtonTextColor;
             FooterButtonMapBackgroundColor = enabledButtonBackgroundColor;
 
             FooterButtonCartIsEnabled = true;
-            FooterButtonCartTextColor = enabledButtonTextColor;
             FooterButtonCartBackgroundColor = enabledButtonBackgroundColor;
 
             PageTitle = "Password Update";

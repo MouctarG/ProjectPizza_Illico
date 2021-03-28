@@ -14,30 +14,9 @@ namespace PizzaIllico.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfileRegistrationPage : PageLayoutTemplateControl 
     { 
-
-        private void SetProfilePageLayout()
-        {
-            FooterButtonHomeIsEnabled = true;
-            FooterButtonHomeTextColor = enabledButtonTextColor;
-            FooterButtonHomeBackgroundColor = enabledButtonBackgroundColor;
-
-            FooterButtonAccountIsEnabled = true;
-            FooterButtonAccountTextColor = enabledButtonTextColor;
-            FooterButtonAccountBackgroundColor = enabledButtonBackgroundColor;
-
-            FooterButtonMapIsEnabled = true;
-            FooterButtonMapTextColor = enabledButtonTextColor;
-            FooterButtonMapBackgroundColor = enabledButtonBackgroundColor;
-
-            FooterButtonCartIsEnabled = true;
-            FooterButtonCartTextColor = enabledButtonTextColor;
-            FooterButtonCartBackgroundColor = enabledButtonBackgroundColor;
-
-            PageTitle = "Registration";
-        }
         public ProfileRegistrationPage() : base()
         {
-            SetProfilePageLayout();
+            PageTitle = "Registration";
 
             InitializeComponent();
             BindingContext = new ProfileRegistrationViewModel();

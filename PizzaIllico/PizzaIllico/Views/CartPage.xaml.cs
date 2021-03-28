@@ -17,19 +17,15 @@ namespace PizzaIllico.Views
         private void SetHomePageLayout()
         {
             FooterButtonHomeIsEnabled = true;
-            FooterButtonHomeTextColor = enabledButtonTextColor;
             FooterButtonHomeBackgroundColor = enabledButtonBackgroundColor;
 
             FooterButtonAccountIsEnabled = true;
-            FooterButtonAccountTextColor = enabledButtonTextColor;
             FooterButtonAccountBackgroundColor = enabledButtonBackgroundColor;
 
             FooterButtonMapIsEnabled = true;
-            FooterButtonMapTextColor = enabledButtonTextColor;
             FooterButtonMapBackgroundColor = enabledButtonBackgroundColor;
 
             FooterButtonCartIsEnabled = false;
-            FooterButtonCartTextColor = disabledButtonTextColor;
             FooterButtonCartBackgroundColor = disabledButtonBackgroundColor;
 
             PageTitle = "Order";

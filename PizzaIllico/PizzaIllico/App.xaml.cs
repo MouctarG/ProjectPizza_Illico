@@ -22,6 +22,7 @@ namespace PizzaIllico
             DependencyService.Register<IAuthenticationService, AuthenticationService>();
             DependencyService.Register<IAccountService, AccountService>();
             DependencyService.Register<IPizzeriaService, PizzeriaService>();
+            DependencyService.Register<IOrderService, OrderService>();
         }
 
     }

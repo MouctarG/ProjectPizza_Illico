@@ -15,7 +15,6 @@ namespace PizzaIllico.ViewModels
     class HomeViewModel : PageLayoutViewModel
     {
 
-        
         // =====================================================================================================
         private Pizzeria _selectedPizerria;
 
@@ -42,7 +41,6 @@ namespace PizzaIllico.ViewModels
         }
 
         private IPizzeriaService _publicService = DependencyService.Get<IPizzeriaService>();
-        private PizzeriaGetAllShopsResponse _pizzerias_response;
 
         private ObservableCollection<Pizzeria> _pizzerias;
 

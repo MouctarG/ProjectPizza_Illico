@@ -9,6 +9,7 @@ using PizzaIllico.Resources.Config;
 using PizzaIllico.Models.Library;
 using System;
 using Storm.Mvvm.Navigation;
+using System.Collections.ObjectModel;
 
 namespace PizzaIllico.ViewModels
 {
@@ -47,7 +48,17 @@ namespace PizzaIllico.ViewModels
             {
                 targetPage = EnumPages.ORDER_HISTORY;
                 if (is_logged_out) await Application.Current.MainPage.DisplayAlert("Information", "Please login first", "OK");
-                else await NavigationService.PushAsync<OrderHistoryPage>(GetNavigationParameters());
+                else
+                {
+                    orderHistory.Clear();
+                    List<Order> results = await orderService.GetOrdersAsync(email);
+                    foreach (Order order in results)
+                    {
+                        orderHistory.Add(new OrderDetail(order));
+                    }
+                    await NavigationService.PushAsync<OrderHistoryPage>(GetNavigationParameters());
+
+                }
             });
 
         }
@@ -67,7 +78,9 @@ namespace PizzaIllico.ViewModels
             {
                 TimeSpan timeSpan = TimeSpan.FromSeconds(login_result.Data.Expires_in) + DateTime.UtcNow.Subtract(start_time);
                 ErrorMessage = "";
+
                 authentication_token = new AuthenticationToken(login_result.Data);
+                authentication_token.Email = Email;
 
                 authentificationService.StoreToken<AuthenticationToken>(authentication_token, timeSpan);
 

@@ -41,6 +41,7 @@ namespace PizzaIllico.Resources.Config
         public static string KEY_LAST_NAME = "Last_name";
         public static string KEY_AUTHENTICATION_TOKEN = "authentication_token";
         public static string KEY_CART = "cart";
+        public static string KEY_ORDER_HISTORY = "order_history";
 
 
         public static string KEY_PIZZERIA = "pizzeria";

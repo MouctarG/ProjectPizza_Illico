@@ -29,6 +29,9 @@ namespace PizzaIllico.Models.Library
             set => expires_in = value; 
         }
 
+        public string Email
+        { get; set;  }
+
         public AuthenticationToken() { }
         public AuthenticationToken(AuthenticationToken auth)
         {

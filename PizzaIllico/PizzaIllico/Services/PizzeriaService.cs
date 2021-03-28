@@ -37,12 +37,10 @@ namespace PizzaIllico.Services
                         Device.BeginInvokeOnMainThread(() => { _action.Invoke(item); });
 
                     }
-                    catch (Exception ex)
+                    catch
                     {
-                        // Thread réseau
                         Device.BeginInvokeOnMainThread(() =>
                         {
-                            // DisplayAlert("Erreur", "Une erreur réseau s'est produite: " + ex.Message, "OK");
                             _action.Invoke(null);
                         });
                     }
@@ -71,12 +69,10 @@ namespace PizzaIllico.Services
                         Device.BeginInvokeOnMainThread(() => { _action.Invoke(item.Data); });
 
                     }
-                    catch (Exception ex)
+                    catch
                     {
-                        // Thread réseau
                         Device.BeginInvokeOnMainThread(() =>
                         {
-                            // DisplayAlert("Erreur", "Une erreur réseau s'est produite: " + ex.Message, "OK");
                             _action.Invoke(null);
                         });
                     }

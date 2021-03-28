@@ -55,7 +55,20 @@ namespace PizzaIllico.ViewModels
             }
             else
             {
-               // TODO store it in the database; msg ok; popasync
+
+                Order order = new Order
+                {
+                    Email = authentication_token.Email,
+                    Date = DateTime.Now.ToString(),
+                    Quantity = TotalQuantity,
+                    Price = TotalPrice,
+                    Description = CurrentCart.ToString()
+                };
+
+                orderService.SaveOrderAsync(order);
+                if(total_price > 0) await Application.Current.MainPage.DisplayAlert("Information", "Order successfully made", "OK");
+                
+                await NavigationService.PopAsync();
 
             }
         }

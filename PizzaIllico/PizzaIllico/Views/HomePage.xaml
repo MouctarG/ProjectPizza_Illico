@@ -56,8 +56,6 @@
                     </CollectionView.ItemTemplate>
 
                 </CollectionView>
-
-
             </Frame>
         </Grid>
         

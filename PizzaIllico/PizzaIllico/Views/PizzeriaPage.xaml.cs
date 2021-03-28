@@ -12,19 +12,15 @@ namespace PizzaIllico.Views
         private void SetPizzeriaPageLayout()
         {
             FooterButtonHomeIsEnabled = true;
-            FooterButtonHomeTextColor = enabledButtonTextColor;
             FooterButtonHomeBackgroundColor = enabledButtonBackgroundColor;
 
             FooterButtonAccountIsEnabled = true;
-            FooterButtonAccountTextColor = enabledButtonTextColor;
             FooterButtonAccountBackgroundColor = enabledButtonBackgroundColor;
 
             FooterButtonMapIsEnabled = true;
-            FooterButtonMapTextColor = enabledButtonTextColor;
             FooterButtonMapBackgroundColor = enabledButtonBackgroundColor;
 
             FooterButtonCartIsEnabled = true;
-            FooterButtonCartTextColor = enabledButtonTextColor;
             FooterButtonCartBackgroundColor = enabledButtonBackgroundColor;
 
             PageTitle = "Pizza selection";

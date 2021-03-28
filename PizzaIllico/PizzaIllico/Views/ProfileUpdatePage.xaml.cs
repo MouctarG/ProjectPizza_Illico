@@ -11,29 +11,9 @@ namespace PizzaIllico.Views
     public partial class ProfileUpdatePage : PageLayoutTemplateControl
     {
 
-        private void SetProfilePageLayout()
-        {
-            FooterButtonHomeIsEnabled = true;
-            FooterButtonHomeTextColor = enabledButtonTextColor;
-            FooterButtonHomeBackgroundColor = enabledButtonBackgroundColor;
-
-            FooterButtonAccountIsEnabled = true;
-            FooterButtonAccountTextColor = enabledButtonTextColor;
-            FooterButtonAccountBackgroundColor = enabledButtonBackgroundColor;
-
-            FooterButtonMapIsEnabled = true;
-            FooterButtonMapTextColor = enabledButtonTextColor;
-            FooterButtonMapBackgroundColor = enabledButtonBackgroundColor;
-
-            FooterButtonCartIsEnabled = true;
-            FooterButtonCartTextColor = enabledButtonTextColor;
-            FooterButtonCartBackgroundColor = enabledButtonBackgroundColor;
-
-            PageTitle = "Profile update";
-        }
         public ProfileUpdatePage()
         {
-            SetProfilePageLayout();
+            PageTitle = "Profile update";
 
             InitializeComponent();
             BindingContext = new ProfileUpdateViewModel();

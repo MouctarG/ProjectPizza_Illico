@@ -20,9 +20,13 @@ namespace PizzaIllico.ViewModels
         protected string password;
         protected string phone_number;
 
+        protected Collection<OrderDetail> orderHistory;
         // authentication
         protected IAuthenticationService authentificationService = DependencyService.Get<IAuthenticationService>();
         protected AuthenticationToken authentication_token = null;
+
+        protected IOrderService orderService = DependencyService.Get<IOrderService>();
+
 
 
         protected Dictionary<string, object> navigationParams = new Dictionary<string, object>();
@@ -31,7 +35,6 @@ namespace PizzaIllico.ViewModels
         protected Cart current_cart;
 
         private string errorMessage = "";
-
 
         public Command FooterButtonHomeCommand
         { get; set; }
@@ -54,7 +57,8 @@ namespace PizzaIllico.ViewModels
                     {Config.KEY_FIRST_NAME, first_name },
                     {Config.KEY_LAST_NAME, last_name },
                     {Config.KEY_AUTHENTICATION_TOKEN, authentication_token },
-                    {Config.KEY_CART, current_cart }
+                    {Config.KEY_CART, current_cart },
+                    {Config.KEY_ORDER_HISTORY, orderHistory }
                 };
         }
 
@@ -86,6 +90,16 @@ namespace PizzaIllico.ViewModels
             set { SetProperty<string>(ref phone_number, value); }
         }
 
+        public Collection<OrderDetail> OrderHistory 
+        {
+            get
+            {
+                if (orderHistory == null) return new Collection<OrderDetail>();
+                else return orderHistory;
+            }
+            set { SetProperty<Collection<OrderDetail>>(ref orderHistory, value);  }
+        }
+
         public AuthenticationToken Authentication_token
         {
             get => authentication_token;
@@ -110,15 +124,20 @@ namespace PizzaIllico.ViewModels
             First_name = GetNavigationParameter<string>(Config.KEY_FIRST_NAME);
             Last_name = GetNavigationParameter<string>(Config.KEY_LAST_NAME);
             Authentication_token =  GetNavigationParameter<AuthenticationToken>(Config.KEY_AUTHENTICATION_TOKEN);
+
+            Collection<OrderDetail> orderHistory = GetNavigationParameter<Collection<OrderDetail>>(Config.KEY_ORDER_HISTORY);
+
+            if (orderHistory == null) OrderHistory = new Collection<OrderDetail>();
+            else OrderHistory = orderHistory;
+
             Cart cart = GetNavigationParameter<Cart>(Config.KEY_CART);
+
+            if (email == null && authentication_token != null) Email = authentication_token.Email;
             if (cart == null)
                 CurrentCart = new Cart();
             else
                 CurrentCart = cart;
-            /**
-             * if (!is_logged_in) HeaderLoggedInInfo = Config.MSG_LOGGED_OUT;
-            else HeaderLoggedInInfo = Config.MSG_LOGGED_IN;
-            */
+          
         }
 
         protected string footerButtonAccountImage;

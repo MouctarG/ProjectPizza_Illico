@@ -14,7 +14,7 @@
                 <Entry Placeholder="Email" FontSize="16" Text="{Binding Email}" />
                 <Entry Placeholder="Téléphone" FontSize="16" x:Name="phone" Text="{Binding Phone_number}" />
                 <Entry Placeholder="Mot de passe" IsPassword="True" FontSize="16" Text="{Binding Password}" />
-                <Label FontSize="12" Text="{Binding ErrorMessage}" />
+                <!--Label FontSize="12" Text="{Binding ErrorMessage}" /-->
 
                 <Button Text="Send"  HorizontalOptions="FillAndExpand" TextColor="White"
                                BackgroundColor="Black" Command="{Binding ExecuteCommand}" />
