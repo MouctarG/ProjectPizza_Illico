@@ -86,7 +86,7 @@ namespace PizzaIllico.Services
             }
         }
 
-        public void sortPizzas(string pizzeria_id,  List<Pizza> pizzas, ObservableCollection<Pizza> _desti)
+        public void sortPizzas(Pizzeria pizzeria,  List<Pizza> pizzas, ObservableCollection<Pizza> _desti)
         {
             if (pizzas == null || _desti == null) return;
             pizzas.Sort((p1, p2) =>
@@ -105,7 +105,7 @@ namespace PizzaIllico.Services
             _desti.Clear();
             foreach (var pizza in pizzas)
             {
-                pizza.Pizzeria_id = pizzeria_id;
+                pizza.CurrentPizzeria = pizzeria;
                 _desti.Add(pizza);
             }
         }

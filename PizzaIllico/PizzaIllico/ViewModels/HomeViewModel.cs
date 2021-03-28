@@ -17,8 +17,6 @@ namespace PizzaIllico.ViewModels
 
         
         // =====================================================================================================
-        private bool _isRefreshing;
-        private bool _isRunning;
         private Pizzeria _selectedPizerria;
 
 
@@ -42,20 +40,6 @@ namespace PizzaIllico.ViewModels
         {
             base.Initialize(navigationParameters);
         }
-        public bool IsRunning 
-        { 
-            get => _isRunning; 
-            set { SetProperty<bool>(ref _isRunning, value); } 
-        }
-        public bool IsRefreshing
-        {
-            get => _isRefreshing;
-            set { 
-                 SetProperty<bool>(ref _isRefreshing, value);
-            }
-
-        }
-        
 
         private IPizzeriaService _publicService = DependencyService.Get<IPizzeriaService>();
         private PizzeriaGetAllShopsResponse _pizzerias_response;
@@ -80,7 +64,7 @@ namespace PizzaIllico.ViewModels
                 
                 var pizzeriaPage = new PizzeriaPage();
                 Dictionary<string, object> navigationParams = GetNavigationParameters();
-                navigationParams.Add(Config.KEY_PIZZERIA_ID, _selectedPizerria.Id);
+                navigationParams.Add(Config.KEY_PIZZERIA, _selectedPizerria);
 
                 await NavigationService.PushAsync<PizzeriaPage>(navigationParams);
                
@@ -88,15 +72,11 @@ namespace PizzaIllico.ViewModels
         }
         private void Do_refresh(object obj)
         {
-            if (_isRefreshing) return;
-            _isRefreshing = true;
             _publicService.RequestPizzeriaList((pizzerias) =>
             {
                 _publicService.sortPizzerias((List<Pizzeria>)pizzerias.Data, _pizzerias);
             });
-            IsRefreshing = false;
         }
-        
 
     }
 }

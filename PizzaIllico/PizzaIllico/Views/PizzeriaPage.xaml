@@ -6,27 +6,28 @@
                            ControlTemplate="{StaticResource PageLayoutTemplate}">
     <ContentPage.Content>
         <Grid>
-            <RefreshView IsRefreshing="{Binding IsRefreshing, Mode=OneWay}" Command="{Binding IsRefreshingCommand}" RefreshColor="DarkOrange">
-                <CollectionView ItemsSource="{Binding Pizzas}" SelectionMode="Multiple"
+            <CollectionView ItemsSource="{Binding Pizzas}" SelectionMode="Single"
                                 SelectedItem="{Binding SelectedPizza}"
-                                SelectionChangedCommand="{Binding GoToPizzaDetailCommand}"
+                                SelectionChangedCommand="{Binding SelectedPizzasChangedCommand}"
+                                
                                 Margin="20">
-                    <CollectionView.ItemTemplate >
-                        <DataTemplate>
-                            <Grid >
+                <CollectionView.ItemTemplate >
+                    <DataTemplate>
+                        <Grid Margin="2"  >
 
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="90" />
-                                    <RowDefinition Height="4" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="75" />
-                                    <ColumnDefinition Width="200" />
-                                    <ColumnDefinition Width="50" />
-                                </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="90" />
+                                <RowDefinition Height="4" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="75" />
+                                <ColumnDefinition Width="200" />
+                                <ColumnDefinition Width="50" />
+                            </Grid.ColumnDefinitions>
 
-                                <Frame IsClippedToBounds="True"
+                            <Frame IsClippedToBounds="True"
+    
                                      BorderColor="Blue"
                                     BackgroundColor="Aqua"
                                     CornerRadius="38"
@@ -35,42 +36,54 @@
                                     WidthRequest="60"
                                     HorizontalOptions="Center"
                                     VerticalOptions="Center">
-                                    <Image
+                                <Image
                                         Source="{Binding Image}"
                                         Margin="-20"
                                         WidthRequest="100"
                                          HeightRequest="100"
                                          Aspect="AspectFill"
                                         BackgroundColor="AliceBlue"/>
-                                </Frame>
+                            </Frame>
 
-                                <StackLayout
-                                        Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
-                                        VerticalOptions="Center" Padding="10"
+                            <StackLayout
+                                        Grid.Row="0" Grid.Column="1" Grid.RowSpan="3"
+                                        VerticalOptions="FillAndExpand" Padding="10"
                                         HorizontalOptions="FillAndExpand"
                                         Orientation="Vertical"
-                                        BackgroundColor="AliceBlue"
+                                        BackgroundColor="{Binding PizzaBackgroundColor}"
                                         >
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"  >
+                                    <Slider Minimum="0" x:Name="slider"  Maximum="20" 
+                                                HorizontalOptions="FillAndExpand" BackgroundColor="DarkGray" 
+                                                Value="{Binding Quantity}"></Slider>
+                                    <Label Text="{Binding QuantityTag}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
                                     <Label Text="{Binding Name}" TextColor="Black" FontSize="13"/>
-                                    <Label Text="{Binding Description}" 
+                                    <Label 
+                                       VerticalOptions="Center" HorizontalOptions="End"
+                                        Text="{Binding PriceTag}" TextColor="Black" FontSize="12"/>
+                                </StackLayout>
+
+                                <Label Text="{Binding Description}" 
                                                TextColor="DarkSlateGray"
                                                MaxLines="3"
                                                LineBreakMode="TailTruncation"
                                                FontSize="12"/>
 
-                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Grid.Row="0" Grid.Column="2" Grid.RowSpan="3" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"  >
 
-                                <Label Grid.Row="0" Grid.Column="2"
-                                       VerticalOptions="Center" HorizontalOptions="End"
-                                Text="{Binding Price}" TextColor="Black" FontSize="12"/>
+                                <Label 
+                                       VerticalOptions="Start" HorizontalOptions="End"
+                                        Text="{Binding TotalPriceTag}" TextColor="Black" FontSize="12"/>
+                            </StackLayout>
 
 
-                            </Grid>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </RefreshView>
-
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </Grid>
     </ContentPage.Content>
 </controls:PageLayoutTemplateControl>

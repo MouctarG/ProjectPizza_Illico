@@ -15,53 +15,52 @@
             </Grid.ColumnDefinitions>
 
             <Frame BorderColor="Orange">
-                <RefreshView IsRefreshing="{Binding IsRefreshing, Mode=OneWay}" Command="{Binding IsRefreshingCommand}" RefreshColor="DarkOrange">
-                    <CollectionView ItemsSource="{Binding Pizzerias}" SelectionChangedCommand="{Binding GoToPizzeriaDetailCommand}"
+                <CollectionView ItemsSource="{Binding Pizzerias}" SelectionChangedCommand="{Binding GoToPizzeriaDetailCommand}"
                                 Grid.Row="2" Grid.ColumnSpan="2"
                                 SelectionMode="Single"
                                 SelectedItem="{Binding SelectedPizzeria}">
 
-                        <CollectionView.ItemTemplate>
+                    <CollectionView.ItemTemplate>
 
-                            <DataTemplate>
+                        <DataTemplate>
 
-                                <Grid Padding="10">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width=".4*" />
-                                        <ColumnDefinition Width=".3*" />
-                                    </Grid.ColumnDefinitions>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".4*" />
+                                    <ColumnDefinition Width=".3*" />
+                                </Grid.ColumnDefinitions>
 
 
-                                    <Label Text="{Binding Name}" TextColor="Black" FontSize="16" Grid.Row="0" Grid.Column="0"
+                                <Label Text="{Binding Name}" TextColor="Black" FontSize="16" Grid.Row="0" Grid.Column="0"
                                                VerticalOptions="Center"
                                                 HorizontalOptions="FillAndExpand"/>
 
-                                    <Label Text="{Binding Address}" 
+                                <Label Text="{Binding Address}" 
                                            TextColor="DarkSlateGray"
                                            MaxLines="2"
                                            LineBreakMode="TailTruncation"
                                            FontSize="12" Grid.Row="1" Grid.Column="0"/>
 
-                                    <Label Grid.Row="0"
+                                <Label Grid.Row="0"
                                             Grid.Column="1"
                                                HorizontalTextAlignment="End"
                                             VerticalOptions="Center"
                                             Text="{Binding Minutes_per_kilometer } " TextColor="Black" FontSize="12"/>
-                                </Grid>
+                            </Grid>
 
-                            </DataTemplate>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
 
-                        </CollectionView.ItemTemplate>
+                </CollectionView>
 
-                    </CollectionView>
-                </RefreshView>
 
             </Frame>
         </Grid>
+        
         
     </ContentPage.Content>
     

@@ -143,9 +143,56 @@
                             VerticalOptions="CenterAndExpand"
                              Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=FooterButtonBackArrow}" />
                 </StackLayout>
+            </Grid>
+        </ControlTemplate>
 
+        <ControlTemplate x:Key="ViewCartLayoutTemplate">
 
+            <Grid HorizontalOptions="FillAndExpand">
 
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.75*" />
+                    <RowDefinition Height="0.05*" />
+                    <RowDefinition Height="0.1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black">
+                    <Label Text="{TemplateBinding  PageTitle}" TextColor="Orange" VerticalOptions="CenterAndExpand" TextTransform="Default" 
+                           CharacterSpacing="6" FontSize="Small" />
+                    <Label Text="{Binding  Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=HeaderLoggedInInfo}" TextColor="Orange" 
+                           VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" TextTransform="Default" 
+                           CharacterSpacing="2" FontSize="Small" Margin="4" />
+                </StackLayout>
+
+                <ContentPresenter Grid.Row="1" />
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  BackgroundColor="Black" Grid.Row="2">
+                    <Label Text="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=OrderSummary}" HorizontalOptions="FillAndExpand"
+                           TextColor="Orange" BackgroundColor="Black"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal"  BackgroundColor="Black" Grid.Row="3">
+                    <Button 
+                              TextTransform="Lowercase"  
+                            
+                             ImageSource="arrow45"
+                            BackgroundColor="Black"
+                              HorizontalOptions="StartAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                             Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=FooterButtonBackArrow}" />
+                    <Button 
+                              TextTransform="Lowercase"  
+                            
+                            Text="Order" TextColor="White"
+                            BackgroundColor="Black"
+                            HorizontalOptions="EndAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PageLayoutViewModel}}, Path=FooterButtonOrder}" />
+
+                </StackLayout>
 
             </Grid>
         </ControlTemplate>

@@ -14,21 +14,16 @@ namespace PizzaIllico.ViewModels
     class PizzeriaViewModel : PageLayoutViewModel
     {
         private string _restaurant_id;
-
-        private bool _isRefreshing;
-        private bool _isRunning;
+        private Pizzeria _currentPizzeria;
         private Pizza _selectedPizza;
 
         private IPizzeriaService _publicService = DependencyService.Get<IPizzeriaService>();
-        private PizzeriaGetAllPizzasResponse _pizzas_response;
 
         private ObservableCollection<Pizza> _pizzas = new ObservableCollection<Pizza>();
 
         public PizzeriaViewModel()
         {
-            PizzaBackgroundColor = Color.Olive;
-            GoToPizzaDetailCommand = new Command(Go_toPizzaDetail);
-            RefreshCommand = new Command(Do_refresh);
+            SelectedPizzasChangedCommand = new Command(OnPizzaSelectionChanged);
 
             FooterButtonHomeCommand = new Command(async () => await NavigationService.PushAsync<HomePage>(GetNavigationParameters()));
             FooterButtonAccountCommand = new Command(async () => await NavigationService.PushAsync<AccountPage>(GetNavigationParameters()));
@@ -40,72 +35,64 @@ namespace PizzaIllico.ViewModels
         {
             base.Initialize(navigationParameters);
 
-            Id = GetNavigationParameter<string>(Config.KEY_PIZZERIA_ID);
+            _currentPizzeria = GetNavigationParameter<Pizzeria>(Config.KEY_PIZZERIA);
+            Id = _currentPizzeria.Id;
             Do_refresh(null);
 
         }
 
         // ----------------------------------------------------------------------------------------------------------------------------
-        public Color PizzaBackgroundColor
+        private async void OnPizzaSelectionChanged(object sender)
         {
-            get; set;
-        }
-        private async void Go_toPizzaDetail(object obj)
-        {
-            if (_selectedPizza != null)
+            if(_selectedPizza != null)
             {
-                PizzaBackgroundColor = Color.AliceBlue;
-                // TODO
+                CurrentCart.Pizzas.Remove(_selectedPizza);
+                if (_selectedPizza.ToggleSelected())
+                {
+                    CurrentCart.Pizzas.Add(_selectedPizza);
+                }
+                await Application.Current.MainPage.DisplayAlert("Selected items", CurrentCart.ToString(), "OK");
+            } 
+        }
 
+        private bool is_selected = false;
+        public bool IsSelected
+        {
+            get => is_selected;
+            set { 
+                SetProperty(ref is_selected, value); 
             }
         }
-
         private void Do_refresh(object obj)
         {
-            if (_isRefreshing) return;
-            _isRefreshing = true;
             _publicService.RequestRestaurantPizzaList((pizzas) =>
             {
-                _publicService.sortPizzas(Id, (List<Pizza>)pizzas, _pizzas);
+                _publicService.sortPizzas(_currentPizzeria, (List<Pizza>)pizzas, _pizzas);
             }, Id);
-
-            IsRefreshing = false;
         }
-
-        
         public string Id
         {
             get => _restaurant_id;
             set { SetProperty<string>(ref _restaurant_id, value); } 
         }
-
         
-
+        public Pizzeria CurrentPizzeria
+        {
+            get => _currentPizzeria;
+            set => _currentPizzeria = value;
+        }
         public Pizza SelectedPizza
         {
             get => _selectedPizza;
             set { SetProperty<Pizza>(ref _selectedPizza, value); }
         }
-
-        public Command GoToPizzaDetailCommand { get; }
-
-        public bool IsRunning
-        {
-            get => _isRunning;
-            set { SetProperty<bool>(ref _isRunning, value); }
-        }
-        public bool IsRefreshing
-        {
-            get => _isRefreshing;
-            set
-            {
-                SetProperty<bool>(ref _isRefreshing, value);
-            }
-        }
-       
+        
         public ObservableCollection<Pizza> Pizzas { get { return _pizzas; } }
 
-        public Command RefreshCommand;
+        public Command SelectedPizzasChangedCommand
+        {
+            get; set;
+        }
         
     }
 }

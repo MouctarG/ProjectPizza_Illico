@@ -16,7 +16,7 @@ namespace PizzaIllico.Services
 
         void sortPizzerias(List<Pizzeria>  pizzerias, ObservableCollection<Pizzeria> _pizzerias);
 
-        void sortPizzas(string pizzeria_id, List<Pizza> pizzas, ObservableCollection<Pizza> _pizzas);
+        void sortPizzas(Pizzeria pizzeria, List<Pizza> pizzas, ObservableCollection<Pizza> _pizzas);
 
     }
 }

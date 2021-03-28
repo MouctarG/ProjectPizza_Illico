@@ -5,6 +5,7 @@ using Storm.Mvvm;
 using Storm.Mvvm.Navigation;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using Xamarin.Forms;
 
@@ -27,8 +28,7 @@ namespace PizzaIllico.ViewModels
         protected Dictionary<string, object> navigationParams = new Dictionary<string, object>();
         // ------------------------------------------------------------------------------------------
 
-        // private string _userID = "";
-        // private string _userPassword = "";
+        protected Cart current_cart;
 
         private string errorMessage = "";
 
@@ -53,7 +53,8 @@ namespace PizzaIllico.ViewModels
                     { Config.KEY_PHONE_NUMBER, phone_number},
                     {Config.KEY_FIRST_NAME, first_name },
                     {Config.KEY_LAST_NAME, last_name },
-                    {Config.KEY_AUTHENTICATION_TOKEN, authentication_token }
+                    {Config.KEY_AUTHENTICATION_TOKEN, authentication_token },
+                    {Config.KEY_CART, current_cart }
                 };
         }
 
@@ -91,6 +92,8 @@ namespace PizzaIllico.ViewModels
             set => authentication_token = value;
         }
 
+        public Cart CurrentCart { get => current_cart; set => current_cart = value; }
+
         public PageLayoutViewModel()
         {
             Authentication_token = authentificationService.GetToken<AuthenticationToken>();
@@ -107,7 +110,11 @@ namespace PizzaIllico.ViewModels
             First_name = GetNavigationParameter<string>(Config.KEY_FIRST_NAME);
             Last_name = GetNavigationParameter<string>(Config.KEY_LAST_NAME);
             Authentication_token =  GetNavigationParameter<AuthenticationToken>(Config.KEY_AUTHENTICATION_TOKEN);
-
+            Cart cart = GetNavigationParameter<Cart>(Config.KEY_CART);
+            if (cart == null)
+                CurrentCart = new Cart();
+            else
+                CurrentCart = cart;
             /**
              * if (!is_logged_in) HeaderLoggedInInfo = Config.MSG_LOGGED_OUT;
             else HeaderLoggedInInfo = Config.MSG_LOGGED_IN;
@@ -118,6 +125,7 @@ namespace PizzaIllico.ViewModels
         protected string header_logged_in_info;
         protected bool is_logged_out;
 
+        
         public string FooterButtonAccountImage
         {
             get => footerButtonAccountImage;

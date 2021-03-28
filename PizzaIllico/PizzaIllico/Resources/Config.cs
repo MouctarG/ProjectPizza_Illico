@@ -40,9 +40,10 @@ namespace PizzaIllico.Resources.Config
         public static string KEY_FIRST_NAME = "First_name";
         public static string KEY_LAST_NAME = "Last_name";
         public static string KEY_AUTHENTICATION_TOKEN = "authentication_token";
+        public static string KEY_CART = "cart";
 
 
-        public static string KEY_PIZZERIA_ID = "pizzeriaID";
+        public static string KEY_PIZZERIA = "pizzeria";
 
         public static string MSG_LOGGED_IN = "[ Logged in]";
         public static string MSG_LOGGED_OUT = "[ Logged out]";

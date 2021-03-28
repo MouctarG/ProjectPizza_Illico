@@ -31,6 +31,12 @@ namespace PizzaIllico.ViewModels
             FooterButtonAccountCommand = new Command(async () => await NavigationService.PushAsync<AccountPage>(GetNavigationParameters()));
             FooterButtonCartCommand = new Command(async () => await NavigationService.PushAsync<CartPage>(GetNavigationParameters()));
 
+       
+            Do_refresh(null);
+           
+        }
+        private void Do_refresh(object obj)
+        {
             _pizzeriaService.RequestPizzeriaList((pizzerias) =>
             {
 
@@ -39,13 +45,12 @@ namespace PizzaIllico.ViewModels
                     Position position = new Position(Convert.ToDouble(item.Latitude), Convert.ToDouble(item.Longitude));
 
                     _pizzerias.Add(new Pizzeria2D(item));
-                    
+
 
                 }
 
             });
         }
-
         public override void Initialize(Dictionary<string, object> navigationParameters)
         {
             base.Initialize(navigationParameters);
